@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>C0笔记</title>
+    <url>/2024/10/10/C0/</url>
+    <content><![CDATA[<h1 id="C语言——从hello-world到goodbye-world（1）"><a href="#C语言——从hello-world到goodbye-world（1）" class="headerlink" title="C语言——从hello world到goodbye world（1）"></a><strong>C语言——从hello world到goodbye world</strong>（1）</h1><h2 id="9-13"><a href="#9-13" class="headerlink" title="9&#x2F;13"></a>9&#x2F;13</h2><p>1.IDE（Integrated Development Environment）集成开发环境 &#x3D; 编辑器 + 编译器</p>
+<p>推荐： DevC++  VScode</p>
+<p>2.Dev C++ 下载后 文件-新建-源代码</p>
+<p>开头写</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;Hello World!\n&quot;</span>);</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//单纯的换行在C不代表任何意义，；才有意义</span></span><br><span class="line"><span class="comment">//\n是字符串的换行</span></span><br><span class="line"><span class="comment">//return 0;干什么用的？？不加也照样运行啊</span></span><br><span class="line"></span><br><span class="line">...</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,<span class="number">21</span>+<span class="number">10</span>);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;21+10=%d&quot;</span>,<span class="number">21</span>+<span class="number">10</span>);</span><br><span class="line">...</span><br><span class="line"><span class="comment">//%表示取余</span></span><br></pre></td></tr></table></figure>
+
+<p>保存-编译运行&#x2F;F9</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> price = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;请输入金额：&quot;</span>);</span><br><span class="line"><span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;price);</span><br><span class="line"><span class="type">int</span> change = <span class="number">100</span> - price;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;找您%d元\n&quot;</span>,change);</span><br><span class="line"></span><br><span class="line">请输入金额：<span class="number">1</span></span><br><span class="line">找您<span class="number">99</span>元</span><br><span class="line">    </span><br><span class="line"><span class="comment">//price 后=0这里可以不写</span></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line"><span class="type">int</span> i;</span><br><span class="line"><span class="type">int</span> j;</span><br><span class="line"></span><br><span class="line">i = j + <span class="number">10</span>;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;%d&quot;</span>,i);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这里发现就算不在i后面加=0，结果也是正常的10？？？？（原视频给出了内存序列号（我不知道怎么形容这个））</span></span><br></pre></td></tr></table></figure>
+
+<p>scanf()函数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> a,b=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//其实这里只赋值了b=0</span></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d,%d&quot;</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="comment">//有逗号输入就要写逗号</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;a=%d,b=%d&quot;</span>,a,b);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//如果输入1 2（换行）或者1（换行），均会得到a=1,b=0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>%d  表示有符号十进制整数。</p>
+</li>
+<li><p>%f  表示单精度浮点数。</p>
+</li>
+<li><p>%c  表示字符。</p>
+</li>
+<li><p>%s  表示字符串。</p>
+</li>
+<li><p>%p  表示指针的值。</p>
+</li>
+<li><p>%x  表示十六进制整数。</p>
+</li>
+<li><p>%f 表述双精度浮点数。</p>
+<p>……</p>
+</li>
+</ol>
+<p>原文链接：<a href="https://blog.csdn.net/Hello_shuo/article/details/138243864">https://blog.csdn.net/Hello_shuo/article/details/138243864</a></p>
+<p>常量</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">const</span> <span class="type">int</span> AMOUNT = <span class="number">1000</span> <span class="comment">//变量，一经声明就要初始化</span></span><br><span class="line">    <span class="comment">//已声明的变量不能被声明为常量</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>浮点数</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;10/3=%d&quot;</span>,<span class="number">10</span>/<span class="number">3</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>/<span class="number">3</span>=<span class="number">3</span>	<span class="comment">//用%d忽略了小数部分</span></span><br><span class="line">--------------------------------    </span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="type">int</span> main()&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;10/3=%f&quot;</span>,<span class="number">10</span>/<span class="number">3</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>/<span class="number">3</span>=<span class="number">0.000000</span></span><br><span class="line">--------------------------------</span><br><span class="line">    </span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="type">int</span> main()&#123;</span><br><span class="line"><span class="built_in">printf</span>(<span class="string">&quot;10/3=%f&quot;</span>,<span class="number">10.0</span>/<span class="number">3</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">10</span>/<span class="number">3</span>=<span class="number">3.333333</span>	<span class="comment">//注：整数之间的运算一定得到整数，整数与浮点数都存在时，会把整数改成浮点数</span></span><br><span class="line">--------------------------------</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="/2024/10/10/C0/image-20240922141930708.png"></p>
+<p><img src="/2024/10/10/C0/image-20240922142119251.png"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//计算60进制时间差</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="keyword">include</span> <span class="string">&lt;stdio.h&gt;</span> </span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">int</span> h1,m1,s1,h2,m2,s2,h3,m3,s3;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d:%d:%d&quot;</span>,&amp;h1,&amp;m1,&amp;s1);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d:%d:%d&quot;</span>,&amp;h2,&amp;m2,&amp;s2);</span><br><span class="line">	h3 = h2 - h1;</span><br><span class="line">	m3 = m2 - m1;</span><br><span class="line">	s3 = s2 -s1;</span><br><span class="line">	<span class="keyword">if</span>(s3&lt;<span class="number">0</span>)&#123;</span><br><span class="line">		s3 += <span class="number">60</span>;</span><br><span class="line">		m3 -= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(m3&lt;<span class="number">0</span>)&#123;</span><br><span class="line">		m3 += <span class="number">60</span>;</span><br><span class="line">		h3 -= <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;已过去%d:%d:%d&quot;</span>,h3,m3,s3);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">8</span>:<span class="number">50</span>:<span class="number">07</span></span><br><span class="line"><span class="number">19</span>:<span class="number">31</span>:<span class="number">00</span></span><br><span class="line">已过去<span class="number">10</span>:<span class="number">40</span>:<span class="number">53</span></span><br><span class="line">--------------------------------</span><br></pre></td></tr></table></figure>
+
+<h2 id="11-3"><a href="#11-3" class="headerlink" title="11&#x2F;3"></a>11&#x2F;3</h2><p><strong>逗号表达式</strong>(表达式1，表达式2，…，表达式n)，逗号优先级为最后，输出为表达式n（Casio的连续计算也是如此）</p>
+<p><code>int b,c,a=(b=3,++(c=b*2)) ;</code></p>
+<p>得 a&#x3D;7</p>
+<p><strong>注意到</strong></p>
+<p><code>i++</code>表示先取i原先的值，再+1,</p>
+<p><code>++i</code>表示先+1，再输出i</p>
+<p><strong>循环内可以声明变量</strong>，且循环内定义的变量和循环外定义的变量，即使名称相同，其地址也是不同的，所以不会报错</p>
+]]></content>
+      <tags>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2024/07/25/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>C1笔记</title>
+    <url>/2024/11/10/C1/</url>
+    <content><![CDATA[<h1 id="C语言——从hello-world到goodbye-world（2）"><a href="#C语言——从hello-world到goodbye-world（2）" class="headerlink" title="C语言——从hello world到goodbye world（2）"></a><strong>C语言——从hello world到goodbye world</strong>（2）</h1><h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>形式：类型 数组名[常量-表示元素个数，即数组维度]</p>
+<p> 如：int a[5]</p>
+<p>访问：a[5]×  索引大于最大元素索引（0-4），造成<strong>数组越界（不会报错），会输出奇怪的东西（尚不明确），且可能造成死机（目前没碰到）</strong></p>
+<p>也可以不填，<strong>直接用元素赋值</strong>，也是一种初始化方式：</p>
+<p>如：int a[] &#x3D; {1,2,3,4,5}</p>
+<p><strong>注意到</strong></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> b[<span class="number">5</span>];</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">1</span>;i&lt;<span class="number">5</span>;i++)&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,b[i]);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>0<br>35<br>0<br>0</p>
+<p>得到了我不签无法理解的垃圾值，因此初始化很必要</p>
+<p><code>int b[5] = &#123;4，1&#125;</code>	前几位为4，1，其余元素全部初始化为0</p>
+<p><code>int a[8] = &#123;[1]=1,[4]=6&#125;</code>	C99指定元素初始化</p>
+<p>数组和字符串的笔记还没保存突然给我退了？？orz</p>
+<p>算了，反正不是重点（试图安慰自己）</p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>内存地址是一个<strong>正的十六进制数</strong>，每个变量的内存地址长度为4位或8位的16进制数（取决于默认的位数，32位平台占4字节，64位平台占8字节，用sizeof()看）</p>
+<p><code>int a</code>整型变量a</p>
+<p><code>int* a</code>或<code>int*a</code>或<code>int *a</code>指针变量a,指向某整型变量，其中a表示地址，通过<code>a=&amp;b</code>取址&#x2F;赋值，通过*a输出指向变量的值（即b)，a的加减乘除是无意义的，为了避免野指针，通常用<code>int* a = NULL</code>初始化,<strong>int±1移动4个字节（32位和64位都是）</strong></p>
+<p><code>char*a</code>同理，也是8位地址，但是**+1只增加一字节内存**，因为ascii码只有1字节&#x3D;8位&#x3D;256bit  那么多种</p>
+<h4 id="注1：指针变量加1，即向后移动1-个位置表示指针变量指向下一个数据元素的首地址。而不是在原地址基础上加1。至于真实的地址加了多少，要看原来指针指向的数据类型是什么。"><a href="#注1：指针变量加1，即向后移动1-个位置表示指针变量指向下一个数据元素的首地址。而不是在原地址基础上加1。至于真实的地址加了多少，要看原来指针指向的数据类型是什么。" class="headerlink" title="注1：指针变量加1，即向后移动1 个位置表示指针变量指向下一个数据元素的首地址。而不是在原地址基础上加1。至于真实的地址加了多少，要看原来指针指向的数据类型是什么。"></a>注1：指针变量加1，即向后移动1 个位置表示指针变量指向下一个数据元素的<strong>首地址</strong>。而不是在原地址基础上加1。至于真实的地址加了多少，要看原来指针指向的数据类型是什么。</h4><h4 id="注2：-的优先级比较低（低于-和-，如果还有其他运算符，建议先（-p-，一个表达式如果输出为指针，那么他就是一个指针表达式。"><a href="#注2：-的优先级比较低（低于-和-，如果还有其他运算符，建议先（-p-，一个表达式如果输出为指针，那么他就是一个指针表达式。" class="headerlink" title="注2：*的优先级比较低（低于[]和++)，如果还有其他运算符，建议先（*p)，一个表达式如果输出为指针，那么他就是一个指针表达式。"></a>注2：*的优先级比较低（低于[]和++)，如果还有其他运算符，建议先（*p)，一个表达式如果输出为指针，那么他就是一个指针表达式。</h4><p>数组的指针:</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">char</span> a[] = <span class="string">&quot;we&quot;</span>;</span><br><span class="line">	<span class="type">char</span>* b = <span class="literal">NULL</span>;</span><br><span class="line">	b = a;<span class="comment">//不要加上&amp;a，会报错</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p  %c\n&quot;</span>,b,*b) ;</span><br><span class="line">	b++;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">&quot;%p  %c&quot;</span>,b,*b) ;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line"><span class="number">000000000062F</span>E10  w</span><br><span class="line"><span class="number">000000000062F</span>E11  e</span><br></pre></td></tr></table></figure>
+
+<p>可见，当一个指针赋值到一个数组，将指向这个数组的第一个元素，指针的移动导致元素序号的移动，说明数组中的数据是线性存储在内存中的。</p>
+<h2 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h2><h3 id="switch-case"><a href="#switch-case" class="headerlink" title="switch case"></a>switch case</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">switch</span>(expression)&#123;</span><br><span class="line">    <span class="keyword">case</span> constant-expression  :</span><br><span class="line">       statement(s);</span><br><span class="line">       <span class="keyword">break</span>; <span class="comment">/* 可选的 */</span></span><br><span class="line">    <span class="keyword">case</span> constant-expression  :</span><br><span class="line">       statement(s);</span><br><span class="line">       <span class="keyword">break</span>; <span class="comment">/* 可选的 */</span></span><br><span class="line">    <span class="comment">/* 您可以有任意数量的 case 语句 */</span></span><br><span class="line">    <span class="keyword">default</span> : <span class="comment">/* 可选的 */</span></span><br><span class="line">       statement(s);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://www.runoob.com/wp-content/uploads/2014/09/switch_statement.jpg" alt="C 中的 switch 语句"></p>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><p><strong>C语言从上往下编译，主函数要放到最后。</strong></p>
+<p>函数声明</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">func1<span class="comment">/*函数一功能*/</span></span><br><span class="line">func2<span class="comment">/*函数二功能*/</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h2><p>定义：</p>
+<p><code>char s[10]=&#123;0&#125;</code></p>
+<p><code>char s[]=&#39;12345&#39;</code></p>
+<p>字符串运算：大小写转换</p>
+<p><code>s[]-=(&#39;A&#39;-&#39;a&#39;)</code></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">()</span>&#123;</span><br><span class="line">	<span class="type">char</span> s[<span class="number">4</span>];</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%s&quot;</span>,&amp;s);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">&quot;%s&quot;</span>,s);</span><br><span class="line"></span><br><span class="line">&#125;<span class="comment">//上面的字符串不能读取输入的空格（到空格处截止）</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="头文件"><a href="#头文件" class="headerlink" title="头文件"></a>头文件</h2><p>#include “stdio.h” 这也是被允许的√</p>
+]]></content>
+      <tags>
+        <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>My New Post</title>
+    <url>/2024/07/25/My-New-Post/</url>
+    <content><![CDATA[<p>祝贺~第一支<a href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
+<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
+]]></content>
+      <tags>
+        <tag>☀️</tag>
+      </tags>
+  </entry>
+</search>
