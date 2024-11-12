@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>My New Post</title>
+    <url>/2024/07/25/My-New-Post/</url>
+    <content><![CDATA[<p>祝贺~第一支<a href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
+<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
+]]></content>
+      <tags>
+        <tag>☀️</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C语言——从hello world到goodbye world (0)</title>
     <url>/2024/10/10/C0/</url>
     <content><![CDATA[<h2 id="9-13"><a href="#9-13" class="headerlink" title="9&#x2F;13"></a>9&#x2F;13</h2><p>1.IDE（Integrated Development Environment）集成开发环境 &#x3D; 编辑器 + 编译器</p>
@@ -99,16 +109,6 @@
 ]]></content>
       <tags>
         <tag>C</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>My New Post</title>
-    <url>/2024/07/25/My-New-Post/</url>
-    <content><![CDATA[<p>祝贺~第一支<a href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
-<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
-]]></content>
-      <tags>
-        <tag>☀️</tag>
       </tags>
   </entry>
   <entry>
