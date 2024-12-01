@@ -19,25 +19,30 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="什么都会记一些，在读单身电气狗一枚。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="liuhc 的个人博客">
-<meta property="og:url" content="http://example.com/index.html">
+    <meta name="description" content="WARNNING:学习过程中随手记录或网上复制黏贴的文字与代码，由于本人性格粗心以及认知不足，错误较非常之多，仅供参考呜呜 9&#x2F;131.IDE（Integrated Development Environment）集成开发环境 &#x3D; 编辑器 + 编译器 推荐： DevC++  VScode 保存-编译运行&#x2F;F9  %d  表示有符号十进制整数。  %f  表示单精度浮点">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言——从hello world到goodbye world">
+<meta property="og:url" content="http://example.com/2024/09/13/c1/index.html">
 <meta property="og:site_name" content="liuhc 的个人博客">
-<meta property="og:description" content="什么都会记一些，在读单身电气狗一枚。">
+<meta property="og:description" content="WARNNING:学习过程中随手记录或网上复制黏贴的文字与代码，由于本人性格粗心以及认知不足，错误较非常之多，仅供参考呜呜 9&#x2F;131.IDE（Integrated Development Environment）集成开发环境 &#x3D; 编辑器 + 编译器 推荐： DevC++  VScode 保存-编译运行&#x2F;F9  %d  表示有符号十进制整数。  %f  表示单精度浮点">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/09/13/c1/image-20241201152723101.png">
+<meta property="og:image" content="http://example.com/2024/09/13/c1/image-20241129210826488.png">
+<meta property="article:published_time" content="2024-09-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-01T09:40:49.686Z">
 <meta property="article:author" content="liuhc Hwy">
-<meta property="article:tag" content="C,硬件,大学生方程式,创作">
+<meta property="article:tag" content="C">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/09/13/c1/image-20241201152723101.png">
 
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2024/09/13/c1/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/09/13/c1/","path":"2024/09/13/c1/","title":"C语言——从hello world到goodbye world"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>liuhc 的个人博客</title>
+<title>C语言——从hello world到goodbye world | liuhc 的个人博客</title>
   
 
 
@@ -70,7 +75,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">liuhc 的个人博客</h1>
+      <p class="site-title">liuhc 的个人博客</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">qq:3876445033</p>
@@ -124,7 +129,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -137,6 +142,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#9-13"><span class="nav-number">1.</span> <span class="nav-text">9&#x2F;13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BE%AA%E7%8E%AFswitch-case"><span class="nav-number">2.</span> <span class="nav-text">循环switch case</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%97%E5%8F%B7%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">3.1.</span> <span class="nav-text">逗号表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">3.2.</span> <span class="nav-text">三目运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E6%84%8F%E5%88%B0"><span class="nav-number">3.3.</span> <span class="nav-text">注意到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="nav-number">3.4.</span> <span class="nav-text">变量的生命周期</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E8%8A%B1%E6%8B%AC%E5%8F%B7%E5%88%92%E5%AE%9A%E4%BD%9C%E7%94%A8%E5%9F%9F-scope-%E5%AE%9A%E4%B9%89%E5%90%8C%E5%90%8D%E5%8F%98%E9%87%8F"><span class="nav-number">3.5.</span> <span class="nav-text">用花括号划定作用域(scope),定义同名变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89%E5%92%8C%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">4.</span> <span class="nav-text">定义和声明的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8extern%E5%A3%B0%E6%98%8E%E5%9C%A8%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E9%87%8C%E5%A3%B0%E6%98%8E%E7%9A%84%E5%8F%98%E9%87%8F-%E5%87%BD%E6%95%B0%E4%B9%9F%E8%A1%8C"><span class="nav-number">4.1.</span> <span class="nav-text">使用extern声明在另一个文件里声明的变量(函数也行)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8extern%E5%A3%B0%E6%98%8E%E5%8F%A6%E4%B8%80%E4%B8%AA%E4%BD%9C%E7%94%A8%E5%9F%9F-scope-%E7%9A%84%E5%8F%98%E9%87%8F"><span class="nav-number">4.2.</span> <span class="nav-text">使用extern声明另一个作用域(scope)的变量</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">5.</span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">5.1.</span> <span class="nav-text">字符串</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E5%88%9D%E6%AD%A5"><span class="nav-number">6.</span> <span class="nav-text">指针初步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%87%BD%E6%95%B0%E5%88%9D%E6%AD%A5"><span class="nav-number">7.</span> <span class="nav-text">函数初步</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%B4%E6%96%87%E4%BB%B6"><span class="nav-number">8.</span> <span class="nav-text">头文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BA%8C%E7%BB%B4%E6%95%B0%E7%BB%84"><span class="nav-number">9.</span> <span class="nav-text">二维数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8C%87%E9%92%88%E8%BF%9B%E9%98%B6"><span class="nav-number">10.</span> <span class="nav-text">指针进阶</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#NULL-%E6%8C%87%E9%92%88-%E5%92%8C-void-%E6%8C%87%E9%92%88"><span class="nav-number">10.1.</span> <span class="nav-text">NULL 指针 和 void 指针</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8C%87%E5%90%91%E6%8C%87%E9%92%88%EF%BC%88%E6%95%B0%E7%BB%84%EF%BC%89%E7%9A%84%E6%8C%87%E9%92%88"><span class="nav-number">10.2.</span> <span class="nav-text">指向指针（数组）的指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B8%B8%E9%87%8F"><span class="nav-number">11.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">12.</span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E4%BD%9C%E7%94%A8%E5%9F%9F%EF%BC%88prototype-scope%EF%BC%89"><span class="nav-number">12.1.</span> <span class="nav-text">原型作用域（prototype scope）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E4%BB%B6%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">12.2.</span> <span class="nav-text">文件作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">12.3.</span> <span class="nav-text">代码块作用域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">12.4.</span> <span class="nav-text">存储作用域</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%88%97-quick-sort"><span class="nav-number">13.</span> <span class="nav-text">快速排列_quick_sort_</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8A%A8%E6%80%81%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86"><span class="nav-number">14.</span> <span class="nav-text">动态内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%88%E4%B8%8E%E5%A0%86"><span class="nav-number">14.1.</span> <span class="nav-text">栈与堆</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%88%EF%BC%88Hack%EF%BC%89"><span class="nav-number">14.1.1.</span> <span class="nav-text">栈（Hack）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A0%86%EF%BC%88Heap%EF%BC%89"><span class="nav-number">14.1.2.</span> <span class="nav-text">堆（Heap）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#malloc-%E5%87%BD%E6%95%B0"><span class="nav-number">14.2.</span> <span class="nav-text">malloc()函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#free-%E5%87%BD%E6%95%B0"><span class="nav-number">14.3.</span> <span class="nav-text">free()函数</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%84%E5%A4%84%E7%90%86"><span class="nav-number">15.</span> <span class="nav-text">预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%8F%E5%AE%9A%E4%B9%89"><span class="nav-number">15.1.</span> <span class="nav-text">宏定义</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8D%E5%B8%A6%E5%8F%82%E6%95%B0"><span class="nav-number">15.1.1.</span> <span class="nav-text">不带参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%A6%E5%8F%82%E6%95%B0"><span class="nav-number">15.1.2.</span> <span class="nav-text">带参数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93"><span class="nav-number">16.</span> <span class="nav-text">结构体</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B5%8C%E5%A5%97"><span class="nav-number">16.1.</span> <span class="nav-text">嵌套</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%93%E6%9E%84%E4%BD%93%E6%8C%87%E9%92%88"><span class="nav-number">16.2.</span> <span class="nav-text">结构体指针</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="nav-number">17.</span> <span class="nav-text">单链表</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%B7%E6%B1%82%E4%BB%A3%E7%A0%81"><span class="nav-number">17.1.</span> <span class="nav-text">请求代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%B4%E6%8F%92%E6%B3%95"><span class="nav-number">17.2.</span> <span class="nav-text">头插法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B0%BE%E6%8F%92%E6%B3%95"><span class="nav-number">17.3.</span> <span class="nav-text">尾插法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A2%9E%E5%88%A0%E6%8F%92%E6%9F%A5"><span class="nav-number">17.4.</span> <span class="nav-text">增删插查</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#typedef"><span class="nav-number">18.</span> <span class="nav-text">typedef()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%85%B1%E7%94%A8%E4%BD%93"><span class="nav-number">19.</span> <span class="nav-text">共用体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%9E%9A%E4%B8%BE%E4%BD%93"><span class="nav-number">20.</span> <span class="nav-text">枚举体</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%8D"><span class="nav-number">21.</span> <span class="nav-text">位</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E5%9F%9F"><span class="nav-number">21.1.</span> <span class="nav-text">位域</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%8D%E6%93%8D%E4%BD%9C"><span class="nav-number">21.2.</span> <span class="nav-text">位操作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A7%BB%E4%BD%8D"><span class="nav-number">21.3.</span> <span class="nav-text">移位</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -173,16 +179,17 @@
 
     </div>
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
 
-    
+
+  
 
 
 <div class="post-block">
   
   
 
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://example.com/2024/09/13/c1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -196,13 +203,13 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | liuhc 的个人博客">
+      <meta itemprop="name" content="C语言——从hello world到goodbye world | liuhc 的个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/09/13/c1/" class="post-title-link" itemprop="url">C语言——从hello world到goodbye world</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          C语言——从hello world到goodbye world
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -246,8 +253,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody">
-          <p>WARNNING:学习过程中随手记录或网上复制黏贴的文字与代码，由于本人性格粗心以及认知不足，错误<del>较</del>非常之多，仅供参考呜呜</p>
+    <div class="post-body" itemprop="articleBody"><p>WARNNING:学习过程中随手记录或网上复制黏贴的文字与代码，由于本人性格粗心以及认知不足，错误<del>较</del>非常之多，仅供参考呜呜</p>
 <h1 id="9-13"><a href="#9-13" class="headerlink" title="9&#x2F;13"></a>9&#x2F;13</h1><p>1.IDE（Integrated Development Environment）集成开发环境 &#x3D; 编辑器 + 编译器</p>
 <p>推荐： DevC++  VScode</p>
 <p>保存-编译运行&#x2F;F9</p>
@@ -516,7 +522,6 @@
 <h2 id="移位"><a href="#移位" class="headerlink" title="移位"></a>移位</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int a;</span><br><span class="line">a &lt;&lt; 3;//二进制数向左移位3,用0填充空位，这里相当于整个数被乘上8</span><br><span class="line">a &lt;&lt;= 3;//a = a&lt;&lt;3</span><br></pre></td></tr></table></figure>
 
 
-      
     </div>
 
     
@@ -524,199 +529,25 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/C/" rel="tag"># C</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/07/25/My-New-Post/" rel="prev" title="My New Post">
+                  <i class="fa fa-angle-left"></i> My New Post
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/My-New-Post/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/lihetian.jpg">
-      <meta itemprop="name" content="liuhc Hwy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liuhc 的个人博客">
-      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | liuhc 的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/25/My-New-Post/" class="post-title-link" itemprop="url">My New Post</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-25 21:01:23" itemprop="dateCreated datePublished" datetime="2024-07-25T21:01:23+08:00">2024-07-25</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-07-27 22:43:32" itemprop="dateModified" datetime="2024-07-27T22:43:32+08:00">2024-07-27</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>40</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>祝贺~第一支<a target="_blank" rel="noopener" href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
-<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/image/lihetian.jpg">
-      <meta itemprop="name" content="liuhc Hwy">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="liuhc 的个人博客">
-      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="undefined | liuhc 的个人博客">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/07/25/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2024-07-25 19:10:39" itemprop="dateCreated datePublished" datetime="2024-07-25T19:10:39+08:00">2024-07-25</time>
-    </span>
-
-  
-    <span class="post-meta-break"></span>
-    <span class="post-meta-item" title="本文字数">
-      <span class="post-meta-item-icon">
-        <i class="far fa-file-word"></i>
-      </span>
-      <span class="post-meta-item-text">本文字数：</span>
-      <span>367</span>
-    </span>
-    <span class="post-meta-item" title="阅读时长">
-      <span class="post-meta-item-icon">
-        <i class="far fa-clock"></i>
-      </span>
-      <span class="post-meta-item-text">阅读时长 &asymp;</span>
-      <span>1 分钟</span>
-    </span>
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
 
 
 
