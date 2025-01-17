@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="何为时钟1.什么是时钟，对单片机有什么作用时钟是由电路产生的具有周期性的脉冲信号，相当于单片机的心脏，要想使用单片机的外设必须开启相应的时钟，驱动外设的本质是操作寄存器，而寄存器是由多个D触发器（D Flip-Flop）构成，每个触发器存储一个比特的数据，并通过同步的时钟信号来更新和保持这些数据：触发器的状态只有在时钟信号的上升沿（或下降沿）到来时才会发生变化，所以要想操作寄存器必须开启对应外设的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="初识时钟（理论较多）">
+<meta property="og:url" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/index.html">
+<meta property="og:site_name" content="liuhc 的个人博客">
+<meta property="og:description" content="何为时钟1.什么是时钟，对单片机有什么作用时钟是由电路产生的具有周期性的脉冲信号，相当于单片机的心脏，要想使用单片机的外设必须开启相应的时钟，驱动外设的本质是操作寄存器，而寄存器是由多个D触发器（D Flip-Flop）构成，每个触发器存储一个比特的数据，并通过同步的时钟信号来更新和保持这些数据：触发器的状态只有在时钟信号的上升沿（或下降沿）到来时才会发生变化，所以要想操作寄存器必须开启对应外设的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201224519691.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201225621869.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241202014707735.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241202015409178.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241202014020230.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201232836363.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241203022805417.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241203022840707.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241203023150129.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241203023040121.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241203023240254.png">
+<meta property="article:published_time" content="2024-11-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-03T09:43:32.338Z">
+<meta property="article:author" content="liuhc Hwy">
+<meta property="article:tag" content="嵌入式">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201224519691.png">
+
+
+<link rel="canonical" href="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/","path":"2024/12/01/2024-12-1-初识时钟/","title":"初识时钟（理论较多）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>初识时钟（理论较多） | liuhc 的个人博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">liuhc 的个人博客</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">qq:3876445033</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-schedule"><a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li><li class="menu-item menu-item-commonweal"><a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BD%95%E4%B8%BA%E6%97%B6%E9%92%9F"><span class="nav-number">1.</span> <span class="nav-text">何为时钟</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E6%97%B6%E9%92%9F%EF%BC%8C%E5%AF%B9%E5%8D%95%E7%89%87%E6%9C%BA%E6%9C%89%E4%BB%80%E4%B9%88%E4%BD%9C%E7%94%A8"><span class="nav-number">1.1.</span> <span class="nav-text">1.什么是时钟，对单片机有什么作用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E6%97%B6%E9%92%9F%E6%A0%91"><span class="nav-number">1.2.</span> <span class="nav-text">2.时钟树</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HSE%E4%B8%8ESYSCLK"><span class="nav-number">2.</span> <span class="nav-text">HSE与SYSCLK</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#APB"><span class="nav-number">2.1.</span> <span class="nav-text">APB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E9%A2%84%E5%88%86%E9%A2%91%E5%99%A8%EF%BC%9F"><span class="nav-number">2.1.1.</span> <span class="nav-text">为什么需要预分频器？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E5%88%86%E9%A2%91%E5%99%A8%E7%9A%84%E4%BE%8B%E5%AD%90"><span class="nav-number">2.1.2.</span> <span class="nav-text">预分频器的例子</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PLL"><span class="nav-number">2.2.</span> <span class="nav-text">PLL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PLL-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%B7%A5%E4%BD%9C%E5%8E%9F%E7%90%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">PLL 的基本工作原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#PLL-%E7%9A%84%E5%B7%A5%E4%BD%9C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.2.2.</span> <span class="nav-text">PLL 的工作过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HSI"><span class="nav-number">3.</span> <span class="nav-text">HSI</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LSE"><span class="nav-number">4.</span> <span class="nav-text">LSE</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#RTC"><span class="nav-number">4.1.</span> <span class="nav-text">RTC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RTC-%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="nav-number">4.1.1.</span> <span class="nav-text">RTC 的基本功能</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LSI"><span class="nav-number">5.</span> <span class="nav-text">LSI</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9C%8B%E9%97%A8%E7%8B%97"><span class="nav-number">5.1.</span> <span class="nav-text">看门狗</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9C%8B%E9%97%A8%E7%8B%97%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="nav-number">5.1.1.</span> <span class="nav-text">看门狗的基本原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9C%80%E8%A6%81%E7%9C%8B%E9%97%A8%E7%8B%97%EF%BC%9F"><span class="nav-number">5.1.2.</span> <span class="nav-text">为什么需要看门狗？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AWU"><span class="nav-number">5.2.</span> <span class="nav-text">AWU</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%B0%8F%E7%BB%93"><span class="nav-number">6.</span> <span class="nav-text">小结</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AE%9A%E6%97%B6%E5%99%A8"><span class="nav-number">7.</span> <span class="nav-text">定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E8%83%BDauto-reload-prelaod-%E5%8F%AF%E9%80%89"><span class="nav-number">7.1.</span> <span class="nav-text">使能auto-reload prelaod(可选)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%8E%B0%E5%9C%A8%E6%9D%A5%E5%81%9A%E4%BD%9C%E4%B8%9A%EF%BC%81"><span class="nav-number">8.</span> <span class="nav-text">现在来做作业！</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cube-MX"><span class="nav-number">8.1.</span> <span class="nav-text">Cube MX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keil5"><span class="nav-number">8.2.</span> <span class="nav-text">keil5</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="liuhc Hwy"
+      src="/image/lihetian.jpg">
+  <p class="site-author-name" itemprop="name">liuhc Hwy</p>
+  <div class="site-description" itemprop="description">什么都会记一些，在读单身电气狗一枚。</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/lihetian.jpg">
+      <meta itemprop="name" content="liuhc Hwy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhc 的个人博客">
+      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="初识时钟（理论较多） | liuhc 的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          初识时钟（理论较多）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-01T00:00:00+08:00">2024-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-03 17:43:32" itemprop="dateModified" datetime="2024-12-03T17:43:32+08:00">2024-12-03</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="何为时钟"><a href="#何为时钟" class="headerlink" title="何为时钟"></a><strong>何为时钟</strong></h1><h2 id="1-什么是时钟，对单片机有什么作用"><a href="#1-什么是时钟，对单片机有什么作用" class="headerlink" title="1.什么是时钟，对单片机有什么作用"></a>1.什么是时钟，对单片机有什么作用</h2><p>时钟是由电路产生的具有周期性的脉冲信号，相当于单片机的心脏，要想使用单片机的外设必须开启相应的时钟，<strong>驱动外设的本质是操作寄存器</strong>，而寄存器是由多个D触发器（D Flip-Flop）构成，每个触发器存储一个比特的数据，并通过同步的时钟信号来更新和保持这些数据：触发器的状态只有在时钟信号的上升沿（或下降沿）到来时才会发生变化，<strong>所以要想操作寄存器必须开启对应外设的时钟。</strong></p>
+<h2 id="2-时钟树"><a href="#2-时钟树" class="headerlink" title="2.时钟树"></a>2.时钟树</h2><p>STM32时钟系统主要的目的就是给相对独立的外设模块提供时钟，主要也是为了降低整个芯片的功耗，所有外设时钟默认都是关闭状态(disable)当我们使用某个外设就要开启这个外设的时钟(enable)（也有叫「使能」的），不同外设需要的时钟频率不同，没必要所有外设都用高速时钟造成浪费，而且有些外设也接受不了这么高的频率，这也是为什么STM32有四个时钟源的原因,就是兼容不同速度的外设，STM32的四个时钟源分别为：<strong>HSE、 LSE、HSI、LSI</strong></p>
+<p><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201224519691.png" alt="时钟树--STM32F10xxx参考手册"></p>
+<h1 id="HSE与SYSCLK"><a href="#HSE与SYSCLK" class="headerlink" title="HSE与SYSCLK"></a>HSE与SYSCLK</h1><p><strong>HSE</strong> 是 <strong>High-Speed External</strong> 的缩写，指的是 <strong>高速外部时钟源</strong>。在 STM32 或其他微控制器中，HSE 是指用于驱动系统时钟的外部时钟源，它通常是一个外部的晶振（晶体振荡器）或外部时钟信号输入。HSE 通常用于提供比内部时钟源（HSI）更高的频率，以提高系统性能，尤其是在需要较高时钟频率的应用中。</p>
+<p><strong>SYSCLK</strong> 是 <strong>System Clock（系统时钟）</strong> 的缩写，指的是微控制器或处理器的主时钟信号，它驱动着系统的核心处理单元（CPU）以及其他各个子系统的运行，来源是PLL，HSE或HSI。</p>
+<p>在 STM32 等微控制器中，<strong>SYSCLK</strong> 是系统中最重要的时钟信号之一，所有主要的外设（包括 APB、AHB 总线、定时器、ADC、USART 等）通常都是基于 SYSCLK 或其分频信号来工作的。</p>
+<h2 id="APB"><a href="#APB" class="headerlink" title="APB"></a>APB</h2><p><strong>APB Prescaler</strong> 是 <strong>APB（Advanced Peripheral Bus）预分频器</strong> 的简称，它用于控制微控制器中 <strong>APB 总线</strong> 的时钟频率。APB 总线是 STM32 等微控制器中用于连接外设（如定时器、USART、ADC 等）的总线之一，而 <strong>预分频器</strong> 通过调整总线时钟的频率来优化外设的工作速度和功耗。</p>
+<p>在许多微控制器（特别是 STM32 系列中），<strong>系统时钟</strong>通常分为 <strong>主系统时钟（SYSCLK）</strong> 和 <strong>外设总线时钟（APB1 和 APB2）</strong>。APB 总线有两个版本：</p>
+<ol>
+<li><strong>APB1 总线</strong>：连接较低速的外设（例如：USART、I2C、SPI、TIM 定时器等）。</li>
+<li><strong>APB2 总线</strong>：连接较高速的外设（例如：高级定时器、GPIO、高速外设等）。</li>
+</ol>
+<h3 id="为什么需要预分频器？"><a href="#为什么需要预分频器？" class="headerlink" title="为什么需要预分频器？"></a>为什么需要预分频器？</h3><p>微控制器的主时钟（SYSCLK）通常很高（例如，几十 MHz 或几百 MHz），而许多外设的工作频率较低。如果将整个系统的时钟直接用于外设，可能会导致以下问题：</p>
+<ol>
+<li><strong>时钟不匹配</strong>：外设不能在较高频率下正常工作，可能会导致错误。</li>
+<li><strong>功耗过高</strong>：高频率的时钟可能导致外设消耗过多的功率。</li>
+<li><strong>数据传输错误</strong>：部分外设（如串口、I2C 等）在高频率下可能无法正确传输数据。</li>
+</ol>
+<p>通过使用 <strong>APB预分频器</strong>，我们可以将较高的主时钟频率分频到适合外设的频率。</p>
+<h3 id="预分频器的例子"><a href="#预分频器的例子" class="headerlink" title="预分频器的例子"></a>预分频器的例子</h3><p>假设系统的主时钟频率（SYSCLK）为 72 MHz，APB1 总线的最大时钟频率为 36 MHz，那么我们可以使用预分频器将 72 MHz 的时钟频率分频为 36 MHz。STM32 系列的微控制器通常允许通过设置一个 4 位的预分频器（通常是 1 至 16 的值）来控制 APB1 和 APB2 总线时钟的频率。</p>
+<h2 id="PLL"><a href="#PLL" class="headerlink" title="PLL"></a>PLL</h2><p><strong>PLL</strong>（<strong>Phase-Locked Loop</strong>，相位锁环）是一种广泛应用于电子和通信领域的反馈控制系统，用于生成<strong>频率倍增</strong>、频率合成、频率同步和精确时钟控制。其核心原理是通过控制一个振荡器，使其输出信号的频率锁定在参考信号的频率上，或者是参考信号的某个倍数。</p>
+<h3 id="PLL-的基本工作原理"><a href="#PLL-的基本工作原理" class="headerlink" title="PLL 的基本工作原理"></a>PLL 的基本工作原理</h3><p>PLL 系统通常包含以下几个主要部分：</p>
+<ol>
+<li><strong>参考信号</strong>（Reference Signal）：PLL 系统接收的输入信号，通常是一个频率已知且稳定的信号，比如外部的时钟信号。</li>
+<li><strong>相位比较器</strong>（Phase Comparator，PC）：比较参考信号与锁相信号之间的相位差。</li>
+<li><strong>低通滤波器</strong>（Low-Pass Filter，LPF）：将相位比较器输出的信号（通常是脉冲信号）转换为平滑的直流电压，用于控制振荡器。</li>
+<li><strong>振荡器</strong>（Voltage-Controlled Oscillator，VCO）：根据低通滤波器提供的控制电压调整输出信号的频率，使其与参考信号的频率同步或按特定比例倍增。</li>
+<li><strong>反馈环路</strong>：PLL 通过反馈机制，将 VCO 的输出信号与参考信号进行比较，从而实现频率和相位的锁定。</li>
+</ol>
+<h3 id="PLL-的工作过程"><a href="#PLL-的工作过程" class="headerlink" title="PLL 的工作过程"></a>PLL 的工作过程</h3><ol>
+<li><strong>相位比较</strong>：PLL 的相位比较器会比较参考信号与 VCO 输出信号的相位差。</li>
+<li><strong>相位差控制</strong>：如果 VCO 输出的信号与参考信号不同步，相位比较器会生成一个与相位差成比例的信号。</li>
+<li><strong>滤波和平滑</strong>：该信号经过低通滤波器处理，得到一个控制电压，控制电压用于调整 VCO 的频率。</li>
+<li><strong>调整输出频率</strong>：VCO 根据控制电压调整其输出频率，直到 VCO 的输出频率与参考信号的频率同步或达到某个倍数（由 PLL 的配置决定）。</li>
+<li><strong>锁相</strong>：当 VCO 输出的信号与参考信号的相位和频率匹配时，PLL 达到 “锁相” 状态。此时，VCO 的频率是参考信号频率的整数倍。</li>
+</ol>
+<p>在微控制器中，外部时钟（如 HSE 外部晶振）可以通过 <strong>PLL</strong> 倍频后生成系统时钟，提供精确且高频率的时钟源供处理器和外设使用。</p>
+<p><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201225621869.png" alt="pll"></p>
+<h1 id="HSI"><a href="#HSI" class="headerlink" title="HSI"></a>HSI</h1><p><strong>HSI（内部高速时钟）</strong>：</p>
+<ul>
+<li>HSI 是内部时钟源，通常频率为 8 MHz（具体值可能不同）。</li>
+<li>它不需要外部硬件支持，但通常频率较低，稳定性和精度较差，适合低功耗或不需要高精度时钟的应用，当HSE故障时，系统时钟会自动切换到HSI，直到HSE启动成功。</li>
+<li>作用：为独立看门狗和自动唤醒单元(RTC)提供时钟</li>
+</ul>
+<h1 id="LSE"><a href="#LSE" class="headerlink" title="LSE"></a><strong>LSE</strong></h1><p>LSE(low Speed External Clock signal)，低速的外部时钟。来源：芯片内部，LSE晶体是一个<strong>32.768kHz</strong>(???????)的低速外部晶体或陶瓷谐振器。</p>
+<p>功能提供一个低功耗且<strong>精确</strong>的时钟源。</p>
+<h2 id="RTC"><a href="#RTC" class="headerlink" title="RTC"></a>RTC</h2><p><strong>RTC</strong>（<strong>Real-Time Clock</strong>，实时时钟）是一种用于在嵌入式系统中提供准确时间和日期的硬件模块。它通常用于记录当前的时间（如秒、分钟、小时、日、月、年等），并保持时间的持续运行，即使系统断电时也能保持时间。</p>
+<p>通常来源为LSE，LSI，HSI。LSE更为常见，因为它精确。</p>
+<h3 id="RTC-的基本功能"><a href="#RTC-的基本功能" class="headerlink" title="RTC 的基本功能"></a>RTC 的基本功能</h3><ol>
+<li><strong>时间计量</strong>：RTC 负责持续计量时间，通常以秒为单位。它可以提供包括年、月、日、小时、分钟和秒的完整时间信息。</li>
+<li><strong>断电保持</strong>：RTC 模块通常配备一个电池（如纽扣电池），即使主系统断电，RTC 仍然能够继续运行，并保持时间信息。这使得 RTC 成为保持系统时间的关键组件，尤其是在需要长期保持时间的应用中。</li>
+<li><strong>定时器功能</strong>：RTC 不仅可以提供实时日期和时间，还可以提供定时器功能，如闹钟、定时提醒等功能。这些功能可以用于定时执行某些操作。</li>
+</ol>
+<h1 id="LSI"><a href="#LSI" class="headerlink" title="LSI"></a><strong>LSI</strong></h1><p>LSI: low Speed Internal Clock signal，低速的内部时钟。</p>
+<p>来源：内部芯片，LSI RC担当一个低功耗时钟源的角色，它可以在停机和待机模式下保持运行，LSI时钟</p>
+<p>频率大约40kHz(在30kHz和60kHz之间)。</p>
+<p>作用：为独立看门狗和自动唤醒单元(RTC)提供时钟</p>
+<h2 id="看门狗"><a href="#看门狗" class="headerlink" title="看门狗"></a>看门狗</h2><p><strong>看门狗（Watchdog）</strong> 是一种用于嵌入式系统中的 <strong>硬件或软件</strong> 机制，用于监控系统是否处于正常运行状态，并在系统出现故障时进行自动重启或恢复操作。看门狗的主要作用是防止系统因软件崩溃或死循环等原因失去响应，保证系统的稳定性和可靠性。</p>
+<h3 id="看门狗的基本原理"><a href="#看门狗的基本原理" class="headerlink" title="看门狗的基本原理"></a>看门狗的基本原理</h3><ol>
+<li><strong>定时器机制</strong>：<ul>
+<li>看门狗通常是一个定时器。当系统工作正常时，软件会周期性地重置（喂）看门狗定时器，使定时器保持在可控范围内。如果软件没有及时重置看门狗定时器，定时器会超时。</li>
+</ul>
+</li>
+<li><strong>超时动作</strong>：<ul>
+<li>当定时器超时（即软件没有及时“喂”它）时，通常会触发一些预定义的动作，最常见的是 <strong>复位（重启）系统</strong>，即让系统重新启动并恢复正常工作。通过这种机制，系统可以自动恢复到正常状态。</li>
+</ul>
+</li>
+</ol>
+<h3 id="为什么需要看门狗？"><a href="#为什么需要看门狗？" class="headerlink" title="为什么需要看门狗？"></a>为什么需要看门狗？</h3><ul>
+<li><strong>防止死循环</strong>：系统在运行时可能由于各种原因（例如软件错误、外部干扰等）进入死循环或阻塞状态，导致系统无法响应或者无法完成预期任务。看门狗可以检测到这种情况，并通过自动重启将系统恢复到正常状态。</li>
+<li><strong>提高系统可靠性</strong>：对于长期运行的嵌入式系统（如工业控制设备、消费电子产品等），保持系统稳定性至关重要。看门狗可以提供额外的安全保障，避免系统因不可预见的错误停滞。</li>
+<li><strong>自动恢复</strong>：有时，系统可能因为一些小问题（如内存泄漏、死锁等）导致部分模块失效，但整体系统依然运行。看门狗通过周期性重启，帮助系统避免长期的不正常运行。</li>
+</ul>
+<h2 id="AWU"><a href="#AWU" class="headerlink" title="AWU"></a>AWU</h2><p><strong>自动唤醒单元（AWU）</strong> 是一种通常用于 <strong>低功耗模式</strong> 下的硬件模块，其主要作用是将系统从 <strong>低功耗休眠模式</strong> 或 <strong>待机模式</strong> 唤醒。AWU 通常用于监控某个时间周期，到了设定时间时，自动唤醒系统。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>迷糊…</p>
+<p>总结一下，HSE和系统时钟有关，是整个芯片最快且稳的时钟源，可以分出两个总线供外设使用，每次开局都要先配置它！</p>
+<p>LSE慢，但是精确度高功耗低，外接电池，是RTC的时钟源。</p>
+<p>HSI不够快也不够稳，只在刚刚启动时使用。</p>
+<p>LSI是看门狗和AWU的时钟源，也可以提供RTC。</p>
+<p>注意：外部晶振元件（如 <strong>晶体（Crystal）</strong> 或 <strong>外部时钟源模块</strong>）不会集成封装在微处理器（MCU）内部，需要单独购买并焊接到 PCB 上，连接到 STM32 微控制器的对应引脚（如 HSE_IN）。</p>
+<p><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241202014707735.png" alt="X1 原理图"></p>
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241202015409178.png" alt="X1和Y1" style="zoom:33%;">
+
+
+
+<h1 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h1><p>定时器是存在于STM32单片机中的一个外设。STM32总共有8个定时器，分别是<strong>2个高级定时器</strong>（TIM1、TIM8），<strong>4个通用定时器</strong>（TIM2、TIM3、TIM4、TIM5）和<strong>2个基本定时器</strong>（TIM5、TIM6）。</p>
+<h2 id="使能auto-reload-prelaod-可选"><a href="#使能auto-reload-prelaod-可选" class="headerlink" title="使能auto-reload prelaod(可选)"></a>使能auto-reload prelaod(可选)</h2><p><code>Preload</code> 是一个配置，用来在定时器计数器发生重载时，提前加载新的自动重载值。通常，预加载可以避免计数器的更新带来的中断抖动，保证定时器的稳定性，尤其是在较高的频率下，防止出现不一致的时间行为。</p>
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241202014020230.png" alt="image-20241202014020230" style="zoom:33%;">
+
+
+
+
+
+
+
+
+
+<h1 id="现在来做作业！"><a href="#现在来做作业！" class="headerlink" title="现在来做作业！"></a>现在来做作业！</h1><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201232836363.png" alt="作业" style="zoom: 50%;">
+
+
+
+
+
+<h2 id="Cube-MX"><a href="#Cube-MX" class="headerlink" title="Cube MX"></a>Cube MX</h2><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203022805417.png" alt="TIM3" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203022840707.png" alt="TIM2" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203023150129.png" alt="image-20241203023150129" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203023040121.png" alt="image-20241203023040121" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203023240254.png" alt="image-20241203023240254" style="zoom:50%;">
+
+
+
+
+
+
+
+
+
+<h2 id="keil5"><a href="#keil5" class="headerlink" title="keil5"></a>keil5</h2><p>定义回调函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> t = <span class="number">5</span>, n = <span class="number">0</span>, m = <span class="number">0</span>, state = <span class="number">0</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> PSC3, ARR3;<span class="comment">//只能用数字了，赋值ARR3的用法还没成功呜呜，感谢好心的部长！</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_TIM_PeriodElapsedCallback</span><span class="params">(TIM_HandleTypeDef *htim)</span><span class="comment">//回调函数1</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(htim-&gt;Instance==TIM2) <span class="comment">//配置哪个定时器就是TIM几</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	n++;</span><br><span class="line">	<span class="keyword">if</span>(n%t == <span class="number">0</span>)HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);</span><br><span class="line">	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(htim-&gt;Instance==TIM3)<span class="comment">//TIM3+1=PWM+1=100HZ ARR+1=10000Hz m步长=20 5s = （ARR+1）/步长/（PWM+1）</span></span><br><span class="line">&#123;	</span><br><span class="line">__HAL_TIM_SetCompare(&amp;htim3,TIM_CHANNEL_2,<span class="number">1000</span>*t<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">if</span>(state == <span class="number">0</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;<span class="number">10000</span>)&#123;</span><br><span class="line">		__HAL_TIM_SetCompare(&amp;htim3,TIM_CHANNEL_1,m);</span><br><span class="line">		m+=<span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		state = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		__HAL_TIM_SetCompare(&amp;htim3,TIM_CHANNEL_1,m);</span><br><span class="line">		m-=<span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">	state = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_GPIO_EXTI_Callback</span><span class="params">(<span class="type">uint16_t</span> GPIO_Pin)</span><span class="comment">//回调函数2</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(GPIO_Pin == GPIO_PIN_8)</span><br><span class="line"> &#123;t++;</span><br><span class="line">TIM2-&gt;ARR = TIM2-&gt;ARR/(t+<span class="number">1</span>)*t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(GPIO_Pin == GPIO_PIN_9)&#123;</span><br><span class="line"><span class="keyword">if</span>(t&gt;<span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">	TIM2-&gt;ARR = TIM2-&gt;ARR*(t+<span class="number">1</span>)/t;</span><br><span class="line">	t--;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>主函数里初始化时钟</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN 1 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END 1 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* MCU Configuration--------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Reset of all peripherals, Initializes the Flash interface and the Systick. */</span></span><br><span class="line">  HAL_Init();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN Init */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END Init */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Configure the system clock */</span></span><br><span class="line">  SystemClock_Config();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN SysInit */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END SysInit */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Initialize all configured peripherals */</span></span><br><span class="line">  MX_GPIO_Init();<span class="comment">//这是CubeMx自动生成的，位置没法改</span></span><br><span class="line">  MX_TIM2_Init();</span><br><span class="line">  MX_TIM3_Init();</span><br><span class="line">  <span class="comment">/* USER CODE BEGIN 2 */</span></span><br><span class="line"><span class="comment">// uint16_t PSC2 = TIM2-&gt;PSC; </span></span><br><span class="line"><span class="comment">// uint16_t ARR2 = TIM2-&gt;ARR; </span></span><br><span class="line"><span class="comment">// uint16_t PSC3 = TIM3-&gt;PSC; </span></span><br><span class="line"><span class="comment">// uint16_t ARR3 = TIM3-&gt;PSC;//结果发现这些数值根本传不到回调函数里，就算是用全局变量传递数值。。。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HAL_TIM_Base_Start_IT(&amp;htim2);<span class="comment">//开启时钟，必须位于初始化之后</span></span><br><span class="line">HAL_TIM_Base_Start_IT(&amp;htim3);</span><br><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_1);<span class="comment">//开启定时器1的通道1的PWM输出</span></span><br><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_2);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END 2 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Infinite loop */</span></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN WHILE */</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* USER CODE END 3 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>另一种思路：TIM2中断模拟PWM的Delay()</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag"># 嵌入式</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/13/C-%E4%BB%8Ehello-world%E5%88%B0goodbye-world/" rel="prev" title="C 从hello world到goodbye world">
+                  <i class="fa fa-angle-left"></i> C 从hello world到goodbye world
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" rel="next" title="CubeMX + Keil5基本配置">
+                  CubeMX + Keil5基本配置 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">liuhc Hwy</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">36k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:06</span>
+  </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

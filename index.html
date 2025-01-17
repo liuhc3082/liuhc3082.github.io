@@ -151,13 +151,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -174,6 +174,689 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/30/2024-12-30-git%EF%BC%88%E5%9F%BA%E6%9C%AC%EF%BC%89%E4%B8%8A%E6%89%8B/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/lihetian.jpg">
+      <meta itemprop="name" content="liuhc Hwy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhc 的个人博客">
+      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | liuhc 的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/30/2024-12-30-git%EF%BC%88%E5%9F%BA%E6%9C%AC%EF%BC%89%E4%B8%8A%E6%89%8B/" class="post-title-link" itemprop="url">git（基本）上手</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-30 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-30T00:00:00+08:00">2024-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2025-01-18 02:07:40" itemprop="dateModified" datetime="2025-01-18T02:07:40+08:00">2025-01-18</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>5.5k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>10 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>感谢：</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1HM411377j?spm_id_from=333.788.player.switch&vd_source=750577b3795032575c17c9e1387bd61b&p=5">https://www.bilibili.com/video/BV1HM411377j?spm_id_from=333.788.player.switch&amp;vd_source=750577b3795032575c17c9e1387bd61b&amp;p=5</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">bash: /c/Users/liuhc/.bash_profile: is a directory</span><br><span class="line"></span><br><span class="line">//查看版本</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test</span><br><span class="line">$ git -v </span><br><span class="line">git version 2.45.2.windows.1</span><br><span class="line"></span><br><span class="line">//配置用户名和邮箱</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test</span><br><span class="line">$ git config --global user.name <span class="string">&quot;liuhc&quot;</span></span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test</span><br><span class="line">$ git config --global user.email liuhc24hwy@163.com</span><br><span class="line"></span><br><span class="line">//保存邮箱</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test</span><br><span class="line">$ git config --global credential.helper store</span><br><span class="line"></span><br><span class="line">//获取默认配置，如果当前地址中仓库信息不存在，则查看全局，然后再读取系统配置</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test</span><br><span class="line">$ git config --global --list</span><br><span class="line">user.name=liuhc</span><br><span class="line">user.email=liuhc24hwy@163.com</span><br><span class="line">http.sslverify=<span class="literal">false</span></span><br><span class="line">credential.helper=store</span><br><span class="line"></span><br><span class="line">//创建新目录</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test</span><br><span class="line">$ <span class="built_in">mkdir</span> dir_test</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test</span><br><span class="line">$ <span class="built_in">cd</span> dir_test</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//无参数创建仓库-在当前目录创建仓库</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test</span><br><span class="line">$ git init</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> E:/project/git_test/dir_test/.git/</span><br><span class="line"></span><br><span class="line">//有参数创建仓库-创建新文件，并在该文件目录下创建仓库</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test</span><br><span class="line">$ git init new_repo</span><br><span class="line">Initialized empty Git repository <span class="keyword">in</span> E:/project/git_test/dir_test/new_repo/.git/</span><br><span class="line"></span><br><span class="line">//强制展示全部文件</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test (master)</span><br><span class="line">$ <span class="built_in">ls</span> -a</span><br><span class="line">./  ../  .git/</span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test (master)</span><br><span class="line">$ <span class="built_in">dir</span> -a</span><br><span class="line">.  ..  .git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test (master)</span><br><span class="line">$ <span class="built_in">cd</span> .git</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//显示.git文件内（a=全部）信息（ltr按大小降序排序 <span class="built_in">ls</span>按大小升序排序）</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/.git (GIT_DIR!)</span><br><span class="line">$ <span class="built_in">ls</span> -altr</span><br><span class="line">total 7</span><br><span class="line">drwxr-xr-x 1 liuhc 197121   0 Dec 30 14:45 ../</span><br><span class="line">-rw-r--r-- 1 liuhc 197121  73 Dec 30 14:45 description</span><br><span class="line">drwxr-xr-x 1 liuhc 197121   0 Dec 30 14:45 info/</span><br><span class="line">drwxr-xr-x 1 liuhc 197121   0 Dec 30 14:45 hooks/</span><br><span class="line">drwxr-xr-x 1 liuhc 197121   0 Dec 30 14:45 refs/</span><br><span class="line">-rw-r--r-- 1 liuhc 197121 130 Dec 30 14:45 config</span><br><span class="line">-rw-r--r-- 1 liuhc 197121  23 Dec 30 14:45 HEAD</span><br><span class="line">drwxr-xr-x 1 liuhc 197121   0 Dec 30 14:45 ./</span><br><span class="line">drwxr-xr-x 1 liuhc 197121   0 Dec 30 14:45 objects/</span><br><span class="line"></span><br><span class="line">//强制删库(删除.git文件)</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/.git (GIT_DIR!)</span><br><span class="line">$ \<span class="built_in">rm</span> -rf .git</span><br><span class="line"></span><br><span class="line">复制仓库</span><br><span class="line">git <span class="built_in">clone</span> （我是网址）</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>位置</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工作区 working directory</td>
+<td>.git所在目录  <u>↓add↓</u></td>
+</tr>
+<tr>
+<td>暂存区 staging area</td>
+<td>.git&#x2F;index 临时存储即将提交的内容    <u>↓commit↓</u></td>
+</tr>
+<tr>
+<td>本能地仓库 local reposito</td>
+<td>.git&#x2F;object 存储代码和版本信息的主要位置</td>
+</tr>
+</tbody></table>
+<p><img src="/2024/12/30/2024-12-30-git%EF%BC%88%E5%9F%BA%E6%9C%AC%EF%BC%89%E4%B8%8A%E6%89%8B/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241230152130269.png" alt="image-20241230152130269"></p>
+<p>git commit  后文件将由已暂存改为未修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">//添加工作区文件至暂存区 *.(文件格式) 可以添加全部该格式文件</span><br><span class="line">git add 文件名</span><br><span class="line"></span><br><span class="line">//查看工作区文件状态（是否被git追踪）</span><br><span class="line">git status 文件名</span><br><span class="line"></span><br><span class="line">//提交暂存区文件至本地仓库</span><br><span class="line">git commit</span><br><span class="line"></span><br><span class="line">//提交指定被跟踪文件（无vim）</span><br><span class="line">git commit -m <span class="string">&quot;file2.txt&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>git commit 后进入vim界面</p>
+<p>i进入编辑模式</p>
+<p>在＃上面输入提交信息</p>
+<p>按<code>esc</code>退出，并输入<code>:wq</code>提交</p>
+<p><img src="/2024/12/30/2024-12-30-git%EF%BC%88%E5%9F%BA%E6%9C%AC%EF%BC%89%E4%B8%8A%E6%89%8B/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241230153824922.png" alt="image-20241230153824922"></p>
+<p>git提示“<code>warning: LF will be replaced by CRLF</code>”</p>
+<p>LF是换行\n</p>
+<p>CRLF是回车\r和换行\n</p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/586324681">Git提示“warning: LF will be replaced by CRLF”最详细解释+解决方案</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">//<span class="string">&#x27;显示版本&#x27;</span></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/new_repo (master)</span><br><span class="line">$ git <span class="built_in">log</span> --oneline</span><br><span class="line">97e6396 (HEAD -&gt; master) file.txt</span><br><span class="line">a993c46 这是第一次提交~~~~~</span><br><span class="line"></span><br><span class="line">//<span class="string">&#x27;命令行复制库 因为.git文件也被复制，所以版本信息也得到复制！&#x27;</span></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test</span><br><span class="line">$ <span class="built_in">cp</span> -rf new_repo repo_mixed</span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test</span><br><span class="line">$ <span class="built_in">cp</span> -rf new_repo repo_hard</span><br><span class="line"></span><br><span class="line">/*<span class="string">&#x27;使用「软」模式回退版本，只更改本地仓库，但保留暂存区和工作区内容&#x27;</span>*/</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_soft (master)</span><br><span class="line">$ git reset --soft 97e6396</span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_soft (master)</span><br><span class="line">$ git <span class="built_in">log</span> --oneline</span><br><span class="line">a993c46 (HEAD -&gt; master) 这是第一次提交~~~~</span><br><span class="line">//<span class="string">&#x27;此时第二次提交的文件状态为已修改&#x27;</span></span><br><span class="line"> liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_soft (master)</span><br><span class="line">$ git status file2.txt</span><br><span class="line">On branch master</span><br><span class="line">Changes to be committed:</span><br><span class="line">  (use <span class="string">&quot;git restore --staged &lt;file&gt;...&quot;</span> to unstage)</span><br><span class="line">        new file:   file2.txt</span><br><span class="line">//混合模式保留工作区，清空暂存区</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_mixed (master)</span><br><span class="line">$ git reset --mixed a993c46</span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_mixed (master)</span><br><span class="line">$ <span class="built_in">ls</span> -altr</span><br><span class="line">total 6</span><br><span class="line">-rw-r--r-- 1 liuhc 197121 11 Dec 30 16:15 file.txt</span><br><span class="line">-rw-r--r-- 1 liuhc 197121  1 Dec 30 16:15 file2.txt</span><br><span class="line">drwxr-xr-x 1 liuhc 197121  0 Dec 30 16:15 ./</span><br><span class="line">drwxr-xr-x 1 liuhc 197121  0 Dec 30 16:15 ../</span><br><span class="line">drwxr-xr-x 1 liuhc 197121  0 Dec 30 16:57 .git/</span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_mixed (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Untracked files:</span><br><span class="line">  (use <span class="string">&quot;git add &lt;file&gt;...&quot;</span> to include <span class="keyword">in</span> what will be committed)</span><br><span class="line">        file2.txt</span><br><span class="line"></span><br><span class="line">nothing added to commit but untracked files present (use <span class="string">&quot;git add&quot;</span> to track)</span><br><span class="line"></span><br><span class="line">//hard模式，会不保留区和工作区，当然这个操作是可以被撤回哒</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_hard (master)</span><br><span class="line">$ git reset --hard a993c46</span><br><span class="line">HEAD is now at a993c46 这是第一次提交~~~~~</span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_hard (master)</span><br><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">nothing to commit, working tree clean</span><br><span class="line"></span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/repo_hard (master)</span><br><span class="line">$ <span class="built_in">ls</span> -altr</span><br><span class="line">total 5</span><br><span class="line">drwxr-xr-x 1 liuhc 197121  0 Dec 30 16:15 ../</span><br><span class="line">-rw-r--r-- 1 liuhc 197121 12 Dec 30 17:00 file.txt</span><br><span class="line">drwxr-xr-x 1 liuhc 197121  0 Dec 30 17:00 ./</span><br><span class="line">drwxr-xr-x 1 liuhc 197121  0 Dec 30 17:00 .git/</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>使用 <code>vi &lt;文件名&gt;</code> 修改文件内容（——vim基本使用方法）</p>
+<p>插入 <code>i --insert--</code></p>
+<p>退出 <code>esc</code></p>
+<p>保存：</p>
+<ul>
+<li>如果你没有做任何改变，输入 <code>:q</code>，然后按 Enter&#x2F;return</li>
+<li>如果你做了一些改变，并希望<strong>保留</strong>它们，输入 <code>:wq</code> 并按 Enter&#x2F;return</li>
+<li>如果你做了一些修改，并希望<strong>放弃</strong>它们，请输入 <code>:q!</code> 并按 Enter&#x2F;return</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//比较工作区和暂存区的差别</span><br><span class="line">liuhc@DESKTOP-S1PR6QS MINGW64 /e/project/git_test/dir_test/new_repo (master)</span><br><span class="line">$ git diff</span><br><span class="line">warning: <span class="keyword">in</span> the working copy of <span class="string">&#x27;file.txt&#x27;</span>, LF will be replaced by CRLF the next time Git touches it</span><br><span class="line">diff --git a/file.txt b/file.txt</span><br><span class="line">index 31e0fce..afae46f 100644    //哈希值和文件最大大小</span><br><span class="line">--- a/file.txt</span><br><span class="line">+++ b/file.txt</span><br><span class="line">@@ -1 +1,48 @@</span><br><span class="line"> helloworld</span><br><span class="line">+sc</span><br><span class="line">+sac</span><br><span class="line">+sdvgfhts</span><br><span class="line">                 ...</span><br><span class="line">                 </span><br><span class="line">+cvb</span><br><span class="line">+</span><br><span class="line">:</span><br><span class="line"></span><br><span class="line">//比较暂存区和上一次提交（版本库）的差别</span><br><span class="line">git diff --cached</span><br><span class="line"></span><br><span class="line">//查看工作区和仓库的差异</span><br><span class="line">git diff HEAD </span><br><span class="line"></span><br><span class="line">//查看暂存区内内容</span><br><span class="line">git ls-files</span><br><span class="line"></span><br><span class="line">//将暂存区更新（把工作区全部文件复制到暂存区）</span><br><span class="line">git add .</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/23/2024-12-23-%E8%80%83%E6%A0%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/lihetian.jpg">
+      <meta itemprop="name" content="liuhc Hwy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhc 的个人博客">
+      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | liuhc 的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/23/2024-12-23-%E8%80%83%E6%A0%B8/" class="post-title-link" itemprop="url">考核</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-12-23 00:00:00 / 修改时间：18:19:08" itemprop="dateCreated datePublished" datetime="2024-12-23T00:00:00+08:00">2024-12-23</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>409</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <hr>
+<p><img src="/2024/12/23/2024-12-23-%E8%80%83%E6%A0%B8/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241223180218788.png" alt="image-20241223180218788"></p>
+<blockquote>
+<p>是一个简单的PWM原理示意图。图中，我们假定定时器工作在向上计数PWM模式，且当 CNT&lt;CCRx 时，输出 0，当 CNT&gt;&#x3D;CCRx 时输出 1。</p>
+</blockquote>
+<p><strong>（注意是取等的！）</strong></p>
+<p>也就是说加入你配置了一个PWM波控制一个LED；</p>
+<p>PWM参数是PSC &#x3D; 7199， ARR &#x3D; 99， LSE &#x3D; 71MHz；</p>
+<p>那么，如果你设置初始脉冲宽度Pulse &#x3D; 99，那么你将获得一个100Hz占空比为1%的LED（肉眼可见，已经很亮啦）</p>
+<p><strong>因此要设置CRR &#x2F; Pulse &#x3D; ARR ！！</strong></p>
+<p>其他关于PWM的介绍——</p>
+<p><strong>CH Polarity（频道有效电平【High&#x2F;Low】）</strong></p>
+<blockquote>
+<p>记住！空即有，所以 空&#x3D;有效</p>
+<p>占空比 &#x3D; 有效电压占比</p>
+<p>鉴于大多数GPIO都是低电平有效，而CubeMX默认为High，建议一开始就改成Low</p>
+</blockquote>
+<p><strong>Mode 1 &#x2F; Mode 2（好像是互补的？mode1高时，它低）</strong></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/03/2024-12-3-%E4%BD%9C%E4%B8%9A%E4%B9%8B-%E8%9C%82%E9%B8%A3%E5%99%A8-+-%E6%8C%89%E9%94%AE-+-PWM-+-%E4%B8%AD%E6%96%AD-+-LED/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/lihetian.jpg">
+      <meta itemprop="name" content="liuhc Hwy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhc 的个人博客">
+      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | liuhc 的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/03/2024-12-3-%E4%BD%9C%E4%B8%9A%E4%B9%8B-%E8%9C%82%E9%B8%A3%E5%99%A8-+-%E6%8C%89%E9%94%AE-+-PWM-+-%E4%B8%AD%E6%96%AD-+-LED/" class="post-title-link" itemprop="url">作业之 蜂鸣器 + 按键 + PWM + 中断 + LED</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-03 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-03T00:00:00+08:00">2024-12-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-22 15:16:50" itemprop="dateModified" datetime="2024-12-22T15:16:50+08:00">2024-12-22</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.6k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>3 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="作业之-蜂鸣器-按键-PWM-中断-LED"><a href="#作业之-蜂鸣器-按键-PWM-中断-LED" class="headerlink" title="作业之 蜂鸣器 + 按键 + PWM + 中断 + LED"></a>作业之 蜂鸣器 + 按键 + PWM + 中断 + LED</h1><p><img src="/2024/12/03/2024-12-3-%E4%BD%9C%E4%B8%9A%E4%B9%8B-%E8%9C%82%E9%B8%A3%E5%99%A8-+-%E6%8C%89%E9%94%AE-+-PWM-+-%E4%B8%AD%E6%96%AD-+-LED/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203144706370.png"></p>
+<h2 id="要求如下："><a href="#要求如下：" class="headerlink" title="要求如下："></a>要求如下：</h2><p>三个按键 八个LED灯 一个蜂鸣器<br>KEY1代表总开关，按下后才允许功能开始允许 再次按下所有功能必须关闭<br>KEY2按下后，LED2-7开始流水灯，并且流水灯运行的速度会随着时间的增加越来越快<br>KYE3按下后，LEDO跟1会以0.5S的周期交替闪烁，再次按下会以0.1S的周期交替闪烁<br>在3S内无任何按键操作，蜂鸣器会报警1S，关掉所有LED</p>
+<h2 id="做之前的思考："><a href="#做之前的思考：" class="headerlink" title="做之前的思考："></a>做之前的思考：</h2><p>三个按键都做成中断EXTI</p>
+<p>问题：KEY3是什么？？？KEY1，2，3因该是KEY0，1，2吧？？？？</p>
+<p><strong>KEY1</strong> 中断负责控制总开关全局变量 static uint8_t <del>switch 卧槽关键字</del>program，**每个中断函数首先都要判断<del>switch</del>program状态(包括TIM4)**，清零timing</p>
+<p><strong>KEY2</strong> 中断检测一旦该案件按下，更改状态变量uint16_t state2，清零timing</p>
+<p><strong>TIM2</strong> 回调函数受state2&gt;0控制，执行流水灯代码，执行完一轮，将减少ARR或者PSC（就和TIM3一样改PSC好了，PSC比ARR设置得小一点，这样让步长相同情况下，加速更明显），达到加速运行速度的效果</p>
+<blockquote>
+<p>我设定初始1Hz，PSC&#x3D;7199，ARR &#x3D; 9999</p>
+</blockquote>
+<p><strong>KEY3</strong> 中断控制状态变量 uint16_t state3，并兼顾判断定时器TIM3的频率（改变PSC为宜），清零timing</p>
+<p><strong>TIM3</strong> 回调函数受state3&gt;0控制 间断<del>+PWM输出因为交替闪烁，所以两个通道的模式取反，占空比为0.5</del>  LED0 和 1不能接受PWM波啊,那算了</p>
+<blockquote>
+<p>我设定初始2Hz，PSC&#x3D;7199，ARR &#x3D; 4999，<del>Channel1 mode1,Channel2 mode2</del></p>
+</blockquote>
+<p><strong>TIM4</strong> 我是计时的，就设置1Hz吧，递增全局变量static uint8_timing，兼顾判断当timing &gt; 3, PWM输出到beep上，并令全局变量 program，state2，state3 &#x3D; 0（刚好达成响1秒就停！！）</p>
+<blockquote>
+<p>我设定初始1Hz，PSC&#x3D;7199，ARR &#x3D; 9999，PD8的BEEP只能用Channel3</p>
+</blockquote>
+<p><img src="/2024/12/03/2024-12-3-%E4%BD%9C%E4%B8%9A%E4%B9%8B-%E8%9C%82%E9%B8%A3%E5%99%A8-+-%E6%8C%89%E9%94%AE-+-PWM-+-%E4%B8%AD%E6%96%AD-+-LED/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203154446174.png"></p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HAL_GPIO_EXTI_Callback</span><span class="params">(<span class="type">uint16_t</span> GPIO_Pin)</span>&#123;</span><br><span class="line"><span class="comment">//KEY 0 PC8</span></span><br><span class="line"><span class="keyword">if</span>(GPIO_Pin == GPIO_PIN_8)&#123;</span><br><span class="line">	program = <span class="number">1</span> - program;</span><br><span class="line">	timing = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(program == <span class="number">1</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//KEY 1 PC9</span></span><br><span class="line"><span class="keyword">if</span>(GPIO_Pin == GPIO_PIN_9)&#123;</span><br><span class="line">	state2++;</span><br><span class="line">	timing = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//KEY 2 PD2</span></span><br><span class="line"><span class="keyword">if</span>(GPIO_Pin == GPIO_PIN_2)</span><br><span class="line">	state3++;</span><br><span class="line">	timing = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span>(state2%<span class="number">2</span> == <span class="number">1</span>)&#123;<span class="comment">//TIM3 2Hz，PSC=7199，ARR = 4999</span></span><br><span class="line">		TIM3-&gt;PSC = <span class="number">7199</span>;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;<span class="comment">//TIM3 10Hz，PSC=719，ARR = 4999</span></span><br><span class="line">		TIM3-&gt;PSC = <span class="number">719</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//计时器的回调函数</span></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_TIM_PeriodElapsedCallback</span><span class="params">(TIM_HandleTypeDef *htim)</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//TIM 2 （初始）1Hz，PSC=7199，ARR = 9999</span></span><br><span class="line"><span class="keyword">if</span>(htim-&gt;Instance == TIM2)&#123;</span><br><span class="line">	<span class="keyword">if</span>(state2 &gt; <span class="number">0</span>)&#123;</span><br><span class="line">		<span class="comment">//LED2-7 流水灯</span></span><br><span class="line">		HAL_GPIO_WritePin(GPIOC,GPIO_PIN_0,<span class="number">0</span>);</span><br><span class="line">		TIM2-&gt;PSC -= <span class="number">100</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>找到解决一开始响1秒的办法啦！！</p>
+<img src="/2024/12/03/2024-12-3-%E4%BD%9C%E4%B8%9A%E4%B9%8B-%E8%9C%82%E9%B8%A3%E5%99%A8-+-%E6%8C%89%E9%94%AE-+-PWM-+-%E4%B8%AD%E6%96%AD-+-LED/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241204105926081.png" alt="image-20241204105926081" style="zoom:50%;">
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/lihetian.jpg">
+      <meta itemprop="name" content="liuhc Hwy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhc 的个人博客">
+      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | liuhc 的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/" class="post-title-link" itemprop="url">CubeMX + Keil5基本配置</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+      
+
+      <time title="创建时间：2024-12-01 00:00:00 / 修改时间：22:23:42" itemprop="dateCreated datePublished" datetime="2024-12-01T00:00:00+08:00">2024-12-01</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>81</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="CubeMX"><a href="#CubeMX" class="headerlink" title="CubeMX"></a>CubeMX</h1><img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221226702.png" style="zoom:25%;">
+
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221236737.png" style="zoom: 33%;">
+
+<p>若不开启高速外部时钟，至多只能设置到64MHz</p>
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221252296.png" style="zoom: 33%;">
+
+<p>开启需要的外设，设置定时器等</p>
+<p>Generate Code</p>
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221749888.png" alt="image-20241201221749888" style="zoom:33%;">
+
+
+
+
+
+<h1 id="Keil5"><a href="#Keil5" class="headerlink" title="Keil5"></a>Keil5</h1><p>魔法棒：</p>
+<p><img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221919515.png" alt="image-20241201221919515"></p>
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221945442.png" alt="image-20241201221945442" style="zoom: 50%;">
+
+<p>如果无法编译（报错显示无法连接）：</p>
+<p><img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201222126577.png" alt="image-20241201222126577"></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/image/lihetian.jpg">
+      <meta itemprop="name" content="liuhc Hwy">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="liuhc 的个人博客">
+      <meta itemprop="description" content="什么都会记一些，在读单身电气狗一枚。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | liuhc 的个人博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/" class="post-title-link" itemprop="url">初识时钟（理论较多）</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2024-12-01 00:00:00" itemprop="dateCreated datePublished" datetime="2024-12-01T00:00:00+08:00">2024-12-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-12-03 17:43:32" itemprop="dateModified" datetime="2024-12-03T17:43:32+08:00">2024-12-03</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>6.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>11 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="何为时钟"><a href="#何为时钟" class="headerlink" title="何为时钟"></a><strong>何为时钟</strong></h1><h2 id="1-什么是时钟，对单片机有什么作用"><a href="#1-什么是时钟，对单片机有什么作用" class="headerlink" title="1.什么是时钟，对单片机有什么作用"></a>1.什么是时钟，对单片机有什么作用</h2><p>时钟是由电路产生的具有周期性的脉冲信号，相当于单片机的心脏，要想使用单片机的外设必须开启相应的时钟，<strong>驱动外设的本质是操作寄存器</strong>，而寄存器是由多个D触发器（D Flip-Flop）构成，每个触发器存储一个比特的数据，并通过同步的时钟信号来更新和保持这些数据：触发器的状态只有在时钟信号的上升沿（或下降沿）到来时才会发生变化，<strong>所以要想操作寄存器必须开启对应外设的时钟。</strong></p>
+<h2 id="2-时钟树"><a href="#2-时钟树" class="headerlink" title="2.时钟树"></a>2.时钟树</h2><p>STM32时钟系统主要的目的就是给相对独立的外设模块提供时钟，主要也是为了降低整个芯片的功耗，所有外设时钟默认都是关闭状态(disable)当我们使用某个外设就要开启这个外设的时钟(enable)（也有叫「使能」的），不同外设需要的时钟频率不同，没必要所有外设都用高速时钟造成浪费，而且有些外设也接受不了这么高的频率，这也是为什么STM32有四个时钟源的原因,就是兼容不同速度的外设，STM32的四个时钟源分别为：<strong>HSE、 LSE、HSI、LSI</strong></p>
+<p><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201224519691.png" alt="时钟树--STM32F10xxx参考手册"></p>
+<h1 id="HSE与SYSCLK"><a href="#HSE与SYSCLK" class="headerlink" title="HSE与SYSCLK"></a>HSE与SYSCLK</h1><p><strong>HSE</strong> 是 <strong>High-Speed External</strong> 的缩写，指的是 <strong>高速外部时钟源</strong>。在 STM32 或其他微控制器中，HSE 是指用于驱动系统时钟的外部时钟源，它通常是一个外部的晶振（晶体振荡器）或外部时钟信号输入。HSE 通常用于提供比内部时钟源（HSI）更高的频率，以提高系统性能，尤其是在需要较高时钟频率的应用中。</p>
+<p><strong>SYSCLK</strong> 是 <strong>System Clock（系统时钟）</strong> 的缩写，指的是微控制器或处理器的主时钟信号，它驱动着系统的核心处理单元（CPU）以及其他各个子系统的运行，来源是PLL，HSE或HSI。</p>
+<p>在 STM32 等微控制器中，<strong>SYSCLK</strong> 是系统中最重要的时钟信号之一，所有主要的外设（包括 APB、AHB 总线、定时器、ADC、USART 等）通常都是基于 SYSCLK 或其分频信号来工作的。</p>
+<h2 id="APB"><a href="#APB" class="headerlink" title="APB"></a>APB</h2><p><strong>APB Prescaler</strong> 是 <strong>APB（Advanced Peripheral Bus）预分频器</strong> 的简称，它用于控制微控制器中 <strong>APB 总线</strong> 的时钟频率。APB 总线是 STM32 等微控制器中用于连接外设（如定时器、USART、ADC 等）的总线之一，而 <strong>预分频器</strong> 通过调整总线时钟的频率来优化外设的工作速度和功耗。</p>
+<p>在许多微控制器（特别是 STM32 系列中），<strong>系统时钟</strong>通常分为 <strong>主系统时钟（SYSCLK）</strong> 和 <strong>外设总线时钟（APB1 和 APB2）</strong>。APB 总线有两个版本：</p>
+<ol>
+<li><strong>APB1 总线</strong>：连接较低速的外设（例如：USART、I2C、SPI、TIM 定时器等）。</li>
+<li><strong>APB2 总线</strong>：连接较高速的外设（例如：高级定时器、GPIO、高速外设等）。</li>
+</ol>
+<h3 id="为什么需要预分频器？"><a href="#为什么需要预分频器？" class="headerlink" title="为什么需要预分频器？"></a>为什么需要预分频器？</h3><p>微控制器的主时钟（SYSCLK）通常很高（例如，几十 MHz 或几百 MHz），而许多外设的工作频率较低。如果将整个系统的时钟直接用于外设，可能会导致以下问题：</p>
+<ol>
+<li><strong>时钟不匹配</strong>：外设不能在较高频率下正常工作，可能会导致错误。</li>
+<li><strong>功耗过高</strong>：高频率的时钟可能导致外设消耗过多的功率。</li>
+<li><strong>数据传输错误</strong>：部分外设（如串口、I2C 等）在高频率下可能无法正确传输数据。</li>
+</ol>
+<p>通过使用 <strong>APB预分频器</strong>，我们可以将较高的主时钟频率分频到适合外设的频率。</p>
+<h3 id="预分频器的例子"><a href="#预分频器的例子" class="headerlink" title="预分频器的例子"></a>预分频器的例子</h3><p>假设系统的主时钟频率（SYSCLK）为 72 MHz，APB1 总线的最大时钟频率为 36 MHz，那么我们可以使用预分频器将 72 MHz 的时钟频率分频为 36 MHz。STM32 系列的微控制器通常允许通过设置一个 4 位的预分频器（通常是 1 至 16 的值）来控制 APB1 和 APB2 总线时钟的频率。</p>
+<h2 id="PLL"><a href="#PLL" class="headerlink" title="PLL"></a>PLL</h2><p><strong>PLL</strong>（<strong>Phase-Locked Loop</strong>，相位锁环）是一种广泛应用于电子和通信领域的反馈控制系统，用于生成<strong>频率倍增</strong>、频率合成、频率同步和精确时钟控制。其核心原理是通过控制一个振荡器，使其输出信号的频率锁定在参考信号的频率上，或者是参考信号的某个倍数。</p>
+<h3 id="PLL-的基本工作原理"><a href="#PLL-的基本工作原理" class="headerlink" title="PLL 的基本工作原理"></a>PLL 的基本工作原理</h3><p>PLL 系统通常包含以下几个主要部分：</p>
+<ol>
+<li><strong>参考信号</strong>（Reference Signal）：PLL 系统接收的输入信号，通常是一个频率已知且稳定的信号，比如外部的时钟信号。</li>
+<li><strong>相位比较器</strong>（Phase Comparator，PC）：比较参考信号与锁相信号之间的相位差。</li>
+<li><strong>低通滤波器</strong>（Low-Pass Filter，LPF）：将相位比较器输出的信号（通常是脉冲信号）转换为平滑的直流电压，用于控制振荡器。</li>
+<li><strong>振荡器</strong>（Voltage-Controlled Oscillator，VCO）：根据低通滤波器提供的控制电压调整输出信号的频率，使其与参考信号的频率同步或按特定比例倍增。</li>
+<li><strong>反馈环路</strong>：PLL 通过反馈机制，将 VCO 的输出信号与参考信号进行比较，从而实现频率和相位的锁定。</li>
+</ol>
+<h3 id="PLL-的工作过程"><a href="#PLL-的工作过程" class="headerlink" title="PLL 的工作过程"></a>PLL 的工作过程</h3><ol>
+<li><strong>相位比较</strong>：PLL 的相位比较器会比较参考信号与 VCO 输出信号的相位差。</li>
+<li><strong>相位差控制</strong>：如果 VCO 输出的信号与参考信号不同步，相位比较器会生成一个与相位差成比例的信号。</li>
+<li><strong>滤波和平滑</strong>：该信号经过低通滤波器处理，得到一个控制电压，控制电压用于调整 VCO 的频率。</li>
+<li><strong>调整输出频率</strong>：VCO 根据控制电压调整其输出频率，直到 VCO 的输出频率与参考信号的频率同步或达到某个倍数（由 PLL 的配置决定）。</li>
+<li><strong>锁相</strong>：当 VCO 输出的信号与参考信号的相位和频率匹配时，PLL 达到 “锁相” 状态。此时，VCO 的频率是参考信号频率的整数倍。</li>
+</ol>
+<p>在微控制器中，外部时钟（如 HSE 外部晶振）可以通过 <strong>PLL</strong> 倍频后生成系统时钟，提供精确且高频率的时钟源供处理器和外设使用。</p>
+<p><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201225621869.png" alt="pll"></p>
+<h1 id="HSI"><a href="#HSI" class="headerlink" title="HSI"></a>HSI</h1><p><strong>HSI（内部高速时钟）</strong>：</p>
+<ul>
+<li>HSI 是内部时钟源，通常频率为 8 MHz（具体值可能不同）。</li>
+<li>它不需要外部硬件支持，但通常频率较低，稳定性和精度较差，适合低功耗或不需要高精度时钟的应用，当HSE故障时，系统时钟会自动切换到HSI，直到HSE启动成功。</li>
+<li>作用：为独立看门狗和自动唤醒单元(RTC)提供时钟</li>
+</ul>
+<h1 id="LSE"><a href="#LSE" class="headerlink" title="LSE"></a><strong>LSE</strong></h1><p>LSE(low Speed External Clock signal)，低速的外部时钟。来源：芯片内部，LSE晶体是一个<strong>32.768kHz</strong>(???????)的低速外部晶体或陶瓷谐振器。</p>
+<p>功能提供一个低功耗且<strong>精确</strong>的时钟源。</p>
+<h2 id="RTC"><a href="#RTC" class="headerlink" title="RTC"></a>RTC</h2><p><strong>RTC</strong>（<strong>Real-Time Clock</strong>，实时时钟）是一种用于在嵌入式系统中提供准确时间和日期的硬件模块。它通常用于记录当前的时间（如秒、分钟、小时、日、月、年等），并保持时间的持续运行，即使系统断电时也能保持时间。</p>
+<p>通常来源为LSE，LSI，HSI。LSE更为常见，因为它精确。</p>
+<h3 id="RTC-的基本功能"><a href="#RTC-的基本功能" class="headerlink" title="RTC 的基本功能"></a>RTC 的基本功能</h3><ol>
+<li><strong>时间计量</strong>：RTC 负责持续计量时间，通常以秒为单位。它可以提供包括年、月、日、小时、分钟和秒的完整时间信息。</li>
+<li><strong>断电保持</strong>：RTC 模块通常配备一个电池（如纽扣电池），即使主系统断电，RTC 仍然能够继续运行，并保持时间信息。这使得 RTC 成为保持系统时间的关键组件，尤其是在需要长期保持时间的应用中。</li>
+<li><strong>定时器功能</strong>：RTC 不仅可以提供实时日期和时间，还可以提供定时器功能，如闹钟、定时提醒等功能。这些功能可以用于定时执行某些操作。</li>
+</ol>
+<h1 id="LSI"><a href="#LSI" class="headerlink" title="LSI"></a><strong>LSI</strong></h1><p>LSI: low Speed Internal Clock signal，低速的内部时钟。</p>
+<p>来源：内部芯片，LSI RC担当一个低功耗时钟源的角色，它可以在停机和待机模式下保持运行，LSI时钟</p>
+<p>频率大约40kHz(在30kHz和60kHz之间)。</p>
+<p>作用：为独立看门狗和自动唤醒单元(RTC)提供时钟</p>
+<h2 id="看门狗"><a href="#看门狗" class="headerlink" title="看门狗"></a>看门狗</h2><p><strong>看门狗（Watchdog）</strong> 是一种用于嵌入式系统中的 <strong>硬件或软件</strong> 机制，用于监控系统是否处于正常运行状态，并在系统出现故障时进行自动重启或恢复操作。看门狗的主要作用是防止系统因软件崩溃或死循环等原因失去响应，保证系统的稳定性和可靠性。</p>
+<h3 id="看门狗的基本原理"><a href="#看门狗的基本原理" class="headerlink" title="看门狗的基本原理"></a>看门狗的基本原理</h3><ol>
+<li><strong>定时器机制</strong>：<ul>
+<li>看门狗通常是一个定时器。当系统工作正常时，软件会周期性地重置（喂）看门狗定时器，使定时器保持在可控范围内。如果软件没有及时重置看门狗定时器，定时器会超时。</li>
+</ul>
+</li>
+<li><strong>超时动作</strong>：<ul>
+<li>当定时器超时（即软件没有及时“喂”它）时，通常会触发一些预定义的动作，最常见的是 <strong>复位（重启）系统</strong>，即让系统重新启动并恢复正常工作。通过这种机制，系统可以自动恢复到正常状态。</li>
+</ul>
+</li>
+</ol>
+<h3 id="为什么需要看门狗？"><a href="#为什么需要看门狗？" class="headerlink" title="为什么需要看门狗？"></a>为什么需要看门狗？</h3><ul>
+<li><strong>防止死循环</strong>：系统在运行时可能由于各种原因（例如软件错误、外部干扰等）进入死循环或阻塞状态，导致系统无法响应或者无法完成预期任务。看门狗可以检测到这种情况，并通过自动重启将系统恢复到正常状态。</li>
+<li><strong>提高系统可靠性</strong>：对于长期运行的嵌入式系统（如工业控制设备、消费电子产品等），保持系统稳定性至关重要。看门狗可以提供额外的安全保障，避免系统因不可预见的错误停滞。</li>
+<li><strong>自动恢复</strong>：有时，系统可能因为一些小问题（如内存泄漏、死锁等）导致部分模块失效，但整体系统依然运行。看门狗通过周期性重启，帮助系统避免长期的不正常运行。</li>
+</ul>
+<h2 id="AWU"><a href="#AWU" class="headerlink" title="AWU"></a>AWU</h2><p><strong>自动唤醒单元（AWU）</strong> 是一种通常用于 <strong>低功耗模式</strong> 下的硬件模块，其主要作用是将系统从 <strong>低功耗休眠模式</strong> 或 <strong>待机模式</strong> 唤醒。AWU 通常用于监控某个时间周期，到了设定时间时，自动唤醒系统。</p>
+<h1 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h1><p>迷糊…</p>
+<p>总结一下，HSE和系统时钟有关，是整个芯片最快且稳的时钟源，可以分出两个总线供外设使用，每次开局都要先配置它！</p>
+<p>LSE慢，但是精确度高功耗低，外接电池，是RTC的时钟源。</p>
+<p>HSI不够快也不够稳，只在刚刚启动时使用。</p>
+<p>LSI是看门狗和AWU的时钟源，也可以提供RTC。</p>
+<p>注意：外部晶振元件（如 <strong>晶体（Crystal）</strong> 或 <strong>外部时钟源模块</strong>）不会集成封装在微处理器（MCU）内部，需要单独购买并焊接到 PCB 上，连接到 STM32 微控制器的对应引脚（如 HSE_IN）。</p>
+<p><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241202014707735.png" alt="X1 原理图"></p>
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241202015409178.png" alt="X1和Y1" style="zoom:33%;">
+
+
+
+<h1 id="定时器"><a href="#定时器" class="headerlink" title="定时器"></a>定时器</h1><p>定时器是存在于STM32单片机中的一个外设。STM32总共有8个定时器，分别是<strong>2个高级定时器</strong>（TIM1、TIM8），<strong>4个通用定时器</strong>（TIM2、TIM3、TIM4、TIM5）和<strong>2个基本定时器</strong>（TIM5、TIM6）。</p>
+<h2 id="使能auto-reload-prelaod-可选"><a href="#使能auto-reload-prelaod-可选" class="headerlink" title="使能auto-reload prelaod(可选)"></a>使能auto-reload prelaod(可选)</h2><p><code>Preload</code> 是一个配置，用来在定时器计数器发生重载时，提前加载新的自动重载值。通常，预加载可以避免计数器的更新带来的中断抖动，保证定时器的稳定性，尤其是在较高的频率下，防止出现不一致的时间行为。</p>
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241202014020230.png" alt="image-20241202014020230" style="zoom:33%;">
+
+
+
+
+
+
+
+
+
+<h1 id="现在来做作业！"><a href="#现在来做作业！" class="headerlink" title="现在来做作业！"></a>现在来做作业！</h1><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201232836363.png" alt="作业" style="zoom: 50%;">
+
+
+
+
+
+<h2 id="Cube-MX"><a href="#Cube-MX" class="headerlink" title="Cube MX"></a>Cube MX</h2><img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203022805417.png" alt="TIM3" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203022840707.png" alt="TIM2" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203023150129.png" alt="image-20241203023150129" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203023040121.png" alt="image-20241203023040121" style="zoom:50%;">
+
+<img src="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241203023240254.png" alt="image-20241203023240254" style="zoom:50%;">
+
+
+
+
+
+
+
+
+
+<h2 id="keil5"><a href="#keil5" class="headerlink" title="keil5"></a>keil5</h2><p>定义回调函数</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">unsigned</span> <span class="type">int</span> t = <span class="number">5</span>, n = <span class="number">0</span>, m = <span class="number">0</span>, state = <span class="number">0</span>;</span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> PSC3, ARR3;<span class="comment">//只能用数字了，赋值ARR3的用法还没成功呜呜，感谢好心的部长！</span></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_TIM_PeriodElapsedCallback</span><span class="params">(TIM_HandleTypeDef *htim)</span><span class="comment">//回调函数1</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(htim-&gt;Instance==TIM2) <span class="comment">//配置哪个定时器就是TIM几</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">	n++;</span><br><span class="line">	<span class="keyword">if</span>(n%t == <span class="number">0</span>)HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_0);</span><br><span class="line">	HAL_GPIO_TogglePin(GPIOC, GPIO_PIN_1);</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(htim-&gt;Instance==TIM3)<span class="comment">//TIM3+1=PWM+1=100HZ ARR+1=10000Hz m步长=20 5s = （ARR+1）/步长/（PWM+1）</span></span><br><span class="line">&#123;	</span><br><span class="line">__HAL_TIM_SetCompare(&amp;htim3,TIM_CHANNEL_2,<span class="number">1000</span>*t<span class="number">-1</span>);</span><br><span class="line"><span class="keyword">if</span>(state == <span class="number">0</span>)&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&lt;<span class="number">10000</span>)&#123;</span><br><span class="line">		__HAL_TIM_SetCompare(&amp;htim3,TIM_CHANNEL_1,m);</span><br><span class="line">		m+=<span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		state = <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(m&gt;<span class="number">0</span>)&#123;</span><br><span class="line">		__HAL_TIM_SetCompare(&amp;htim3,TIM_CHANNEL_1,m);</span><br><span class="line">		m-=<span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">	state = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_GPIO_EXTI_Callback</span><span class="params">(<span class="type">uint16_t</span> GPIO_Pin)</span><span class="comment">//回调函数2</span></span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">if</span>(GPIO_Pin == GPIO_PIN_8)</span><br><span class="line"> &#123;t++;</span><br><span class="line">TIM2-&gt;ARR = TIM2-&gt;ARR/(t+<span class="number">1</span>)*t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(GPIO_Pin == GPIO_PIN_9)&#123;</span><br><span class="line"><span class="keyword">if</span>(t&gt;<span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">	TIM2-&gt;ARR = TIM2-&gt;ARR*(t+<span class="number">1</span>)/t;</span><br><span class="line">	t--;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>主函数里初始化时钟</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">int</span> <span class="title function_">main</span><span class="params">(<span class="type">void</span>)</span></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN 1 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END 1 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* MCU Configuration--------------------------------------------------------*/</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Reset of all peripherals, Initializes the Flash interface and the Systick. */</span></span><br><span class="line">  HAL_Init();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN Init */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END Init */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Configure the system clock */</span></span><br><span class="line">  SystemClock_Config();</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN SysInit */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END SysInit */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Initialize all configured peripherals */</span></span><br><span class="line">  MX_GPIO_Init();<span class="comment">//这是CubeMx自动生成的，位置没法改</span></span><br><span class="line">  MX_TIM2_Init();</span><br><span class="line">  MX_TIM3_Init();</span><br><span class="line">  <span class="comment">/* USER CODE BEGIN 2 */</span></span><br><span class="line"><span class="comment">// uint16_t PSC2 = TIM2-&gt;PSC; </span></span><br><span class="line"><span class="comment">// uint16_t ARR2 = TIM2-&gt;ARR; </span></span><br><span class="line"><span class="comment">// uint16_t PSC3 = TIM3-&gt;PSC; </span></span><br><span class="line"><span class="comment">// uint16_t ARR3 = TIM3-&gt;PSC;//结果发现这些数值根本传不到回调函数里，就算是用全局变量传递数值。。。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HAL_TIM_Base_Start_IT(&amp;htim2);<span class="comment">//开启时钟，必须位于初始化之后</span></span><br><span class="line">HAL_TIM_Base_Start_IT(&amp;htim3);</span><br><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_1);<span class="comment">//开启定时器1的通道1的PWM输出</span></span><br><span class="line">HAL_TIM_PWM_Start(&amp;htim3,TIM_CHANNEL_2);</span><br><span class="line"></span><br><span class="line">  <span class="comment">/* USER CODE END 2 */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/* Infinite loop */</span></span><br><span class="line">  <span class="comment">/* USER CODE BEGIN WHILE */</span></span><br><span class="line">  <span class="keyword">while</span> (<span class="number">1</span>)</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="comment">/* USER CODE END WHILE */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/* USER CODE BEGIN 3 */</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/* USER CODE END 3 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>另一种思路：TIM2中断模拟PWM的Delay()</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -219,7 +902,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-12-01 18:08:14" itemprop="dateModified" datetime="2024-12-01T18:08:14+08:00">2024-12-01</time>
+      <time title="修改时间：2024-12-01 18:35:53" itemprop="dateModified" datetime="2024-12-01T18:35:53+08:00">2024-12-01</time>
     </span>
 
   
@@ -501,7 +1184,7 @@
 
 
 
-<h1 id="枚举体"><a href="#枚举体" class="headerlink" title="枚举体"></a>枚举体</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">enum 枚举体类型 &#123;枚举常量1,枚举常量2,···&#125;;// 声明枚举体</span><br><span class="line">enum 枚举体类型 枚举变量;//定义枚举变量</span><br><span class="line"></span><br><span class="line">默认 「枚举常量1」=1，后面依次+1</span><br><span class="line">也可以这样声明：</span><br><span class="line">enum 枚举体类型 &#123;枚举常量1 = 10,枚举常量2,···&#125;;</span><br></pre></td></tr></table></figure>
+<h1 id="枚举体"><a href="#枚举体" class="headerlink" title="枚举体"></a>枚举体</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> 枚举体类型 &#123;</span>枚举常量<span class="number">1</span>,枚举常量<span class="number">2</span>,···&#125;;<span class="comment">// 声明枚举体</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> 枚举体类型 枚举变量;</span><span class="comment">//定义枚举变量</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//默认 「枚举常量1」=1，后面依次+1</span></span><br><span class="line"><span class="comment">//也可以这样声明：</span></span><br><span class="line"><span class="class"><span class="keyword">enum</span> 枚举体类型 &#123;</span>枚举常量<span class="number">1</span> = <span class="number">10</span>,枚举常量<span class="number">2</span>,···&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//赋值枚举体变量：</span></span><br><span class="line">枚举体变量 = 枚举常量</span><br></pre></td></tr></table></figure>
 
 
 
@@ -731,7 +1414,7 @@
 
   <div class="copyright">
     &copy; 
-    <span itemprop="copyrightYear">2024</span>
+    <span itemprop="copyrightYear">2025</span>
     <span class="with-love">
       <i class="fa fa-heart"></i>
     </span>
@@ -742,13 +1425,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">22k</span>
+    <span title="站点总字数">36k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">41 分钟</span>
+    <span title="站点阅读时长">1:06</span>
   </span>
 </div>
   <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动

@@ -19,27 +19,35 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="CubeMX    若不开启高速外部时钟，至多只能设置到64MHz   开启需要的外设，设置定时器等 Generate Code       Keil5魔法棒：    如果无法编译（报错显示无法连接）：">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2024/07/25/hello-world/index.html">
+<meta property="og:title" content="CubeMX + Keil5基本配置">
+<meta property="og:url" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/index.html">
 <meta property="og:site_name" content="liuhc 的个人博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="CubeMX    若不开启高速外部时钟，至多只能设置到64MHz   开启需要的外设，设置定时器等 Generate Code       Keil5魔法棒：    如果无法编译（报错显示无法连接）：">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-07-25T11:10:39.399Z">
-<meta property="article:modified_time" content="2024-07-25T11:10:39.400Z">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201221226702.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201221236737.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201221252296.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201221749888.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201221919515.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201221945442.png">
+<meta property="og:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201222126577.png">
+<meta property="article:published_time" content="2024-11-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-12-01T14:23:42.095Z">
 <meta property="article:author" content="liuhc Hwy">
-<meta property="article:tag" content="C,硬件,大学生方程式,创作">
+<meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users/liuhc/AppData/Roaming/Typora/typora-user-images/image-20241201221226702.png">
 
 
-<link rel="canonical" href="http://example.com/2024/07/25/hello-world/">
+<link rel="canonical" href="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/07/25/hello-world/","path":"2024/07/25/hello-world/","title":"Hello World"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/","path":"2024/12/01/2024-12-1-CubeMX-+-Keil5基本配置/","title":"CubeMX + Keil5基本配置"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hello World | liuhc 的个人博客</title>
+<title>CubeMX + Keil5基本配置 | liuhc 的个人博客</title>
   
 
 
@@ -139,7 +147,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#CubeMX"><span class="nav-number">1.</span> <span class="nav-text">CubeMX</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Keil5"><span class="nav-number">2.</span> <span class="nav-text">Keil5</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -187,7 +195,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2024/07/25/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/image/lihetian.jpg">
@@ -200,12 +208,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hello World | liuhc 的个人博客">
+      <meta itemprop="name" content="CubeMX + Keil5基本配置 | liuhc 的个人博客">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          CubeMX + Keil5基本配置
         </h1>
 
         <div class="post-meta-container">
@@ -215,8 +223,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2024-07-25 19:10:39" itemprop="dateCreated datePublished" datetime="2024-07-25T19:10:39+08:00">2024-07-25</time>
+      <time title="创建时间：2024-12-01 00:00:00 / 修改时间：22:23:42" itemprop="dateCreated datePublished" datetime="2024-12-01T00:00:00+08:00">2024-12-01</time>
     </span>
 
   
@@ -226,7 +235,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>367</span>
+      <span>81</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -243,19 +252,27 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h1 id="CubeMX"><a href="#CubeMX" class="headerlink" title="CubeMX"></a>CubeMX</h1><img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221226702.png" style="zoom:25%;">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221236737.png" style="zoom: 33%;">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>若不开启高速外部时钟，至多只能设置到64MHz</p>
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221252296.png" style="zoom: 33%;">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>开启需要的外设，设置定时器等</p>
+<p>Generate Code</p>
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221749888.png" alt="image-20241201221749888" style="zoom:33%;">
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+
+
+
+<h1 id="Keil5"><a href="#Keil5" class="headerlink" title="Keil5"></a>Keil5</h1><p>魔法棒：</p>
+<p><img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221919515.png" alt="image-20241201221919515"></p>
+<img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201221945442.png" alt="image-20241201221945442" style="zoom: 50%;">
+
+<p>如果无法编译（报错显示无法连接）：</p>
+<p><img src="/2024/12/01/2024-12-1-CubeMX-+-Keil5%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20241201222126577.png" alt="image-20241201222126577"></p>
 
     </div>
 
@@ -264,15 +281,21 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%B5%8C%E5%85%A5%E5%BC%8F/" rel="tag"># 嵌入式</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2024/12/01/2024-12-1-%E5%88%9D%E8%AF%86%E6%97%B6%E9%92%9F/" rel="prev" title="初识时钟（理论较多）">
+                  <i class="fa fa-angle-left"></i> 初识时钟（理论较多）
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2024/07/25/My-New-Post/" rel="next" title="My New Post">
-                  My New Post <i class="fa fa-angle-right"></i>
+                <a href="/2024/12/03/2024-12-3-%E4%BD%9C%E4%B8%9A%E4%B9%8B-%E8%9C%82%E9%B8%A3%E5%99%A8-+-%E6%8C%89%E9%94%AE-+-PWM-+-%E4%B8%AD%E6%96%AD-+-LED/" rel="next" title="作业之 蜂鸣器 + 按键 + PWM + 中断 + LED">
+                  作业之 蜂鸣器 + 按键 + PWM + 中断 + LED <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
