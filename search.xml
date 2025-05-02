@@ -228,65 +228,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Keil 使用</title>
-    <url>/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>给</p>
-<h2 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h2><p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250308203853221.png" alt="功能一栏"></p>
-<p>自左向右：</p>
-<ul>
-<li>单步执行<ul>
-<li>有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果</li>
-<li>【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】</li>
-<li>【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】</li>
-</ul>
-</li>
-<li>执行完此函数（光标所指向的函数）</li>
-<li></li>
-</ul>
-<p>​					</p>
-<p>​					</p>
-<h2 id="断点-快捷键-Ctr-B"><a href="#断点-快捷键-Ctr-B" class="headerlink" title="断点 快捷键 Ctr+B"></a>断点 快捷键 Ctr+B</h2><p>仅灰色的行才能打断点，因为有些临近相同类型的命令会被整合在一起执行</p>
-<ul>
-<li>可以查看和输入断点（C或汇编）</li>
-</ul>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308203718271.png" alt="断点" style="zoom:33%;">
-
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308204219473.png" alt="断点" style="zoom:33%;">
-
-
-
-<ul>
-<li>可以设置断点计数，全速运行，一旦计数到达这个数字，就会断</li>
-</ul>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309021205238-17414575645953.png" alt="重复断点" style="zoom: 33%;">
-
-<ul>
-<li>条件断点（对于全局和静态变量有效）<ul>
-<li>失败<ul>
-<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025406544.png" alt="条件断点失败" style="zoom:33%;"></li>
-</ul>
-</li>
-<li>成功（给Read权）<ul>
-<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025831547.png" alt="image-20250309025831547" style="zoom:33%;"></li>
-</ul>
-</li>
-<li>局部变量目前未能成功</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030043779.png" alt="局部变量未定义"></p>
-<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030224547.png" alt="局部变量已定义"></p>
-<p><strong>map文件</strong></p>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309030800863.png" alt="map" style="zoom:50%;">
-
-<p>不影响程序运行的调试</p>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309032909583.png" alt="不影响程序运行的调试" style="zoom:33%;">
-]]></content>
-      <tags>
-        <tag>嵌入式</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>git（基本）上手</title>
     <url>/2024/12/30/2024-12-30-git%EF%BC%88%E5%9F%BA%E6%9C%AC%EF%BC%89%E4%B8%8A%E6%89%8B/</url>
     <content><![CDATA[<p>感谢：</p>
@@ -342,16 +283,6 @@
 ]]></content>
       <tags>
         <tag>软件</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>My New Post</title>
-    <url>/2024/07/25/My-New-Post/</url>
-    <content><![CDATA[<p>祝贺~第一支<a href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
-<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
-]]></content>
-      <tags>
-        <tag>☀️</tag>
       </tags>
   </entry>
   <entry>
@@ -629,6 +560,75 @@
 ]]></content>
       <tags>
         <tag>C</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Keil 使用</title>
+    <url>/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>给</p>
+<h2 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h2><p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250308203853221.png" alt="功能一栏"></p>
+<p>自左向右：</p>
+<ul>
+<li>单步执行<ul>
+<li>有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果</li>
+<li>【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】</li>
+<li>【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】</li>
+</ul>
+</li>
+<li>执行完此函数（光标所指向的函数）</li>
+<li></li>
+</ul>
+<p>​					</p>
+<p>​					</p>
+<h2 id="断点-快捷键-Ctr-B"><a href="#断点-快捷键-Ctr-B" class="headerlink" title="断点 快捷键 Ctr+B"></a>断点 快捷键 Ctr+B</h2><p>仅灰色的行才能打断点，因为有些临近相同类型的命令会被整合在一起执行</p>
+<ul>
+<li>可以查看和输入断点（C或汇编）</li>
+</ul>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308203718271.png" alt="断点" style="zoom:33%;">
+
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308204219473.png" alt="断点" style="zoom:33%;">
+
+
+
+<ul>
+<li>可以设置断点计数，全速运行，一旦计数到达这个数字，就会断</li>
+</ul>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309021205238-17414575645953.png" alt="重复断点" style="zoom: 33%;">
+
+<ul>
+<li>条件断点（对于全局和静态变量有效）<ul>
+<li>失败<ul>
+<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025406544.png" alt="条件断点失败" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>成功（给Read权）<ul>
+<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025831547.png" alt="image-20250309025831547" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>局部变量目前未能成功</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030043779.png" alt="局部变量未定义"></p>
+<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030224547.png" alt="局部变量已定义"></p>
+<p><strong>map文件</strong></p>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309030800863.png" alt="map" style="zoom:50%;">
+
+<p>不影响程序运行的调试</p>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309032909583.png" alt="不影响程序运行的调试" style="zoom:33%;">
+]]></content>
+      <tags>
+        <tag>嵌入式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>My New Post</title>
+    <url>/2024/07/25/My-New-Post/</url>
+    <content><![CDATA[<p>祝贺~第一支<a href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
+<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
+]]></content>
+      <tags>
+        <tag>☀️</tag>
       </tags>
   </entry>
   <entry>
