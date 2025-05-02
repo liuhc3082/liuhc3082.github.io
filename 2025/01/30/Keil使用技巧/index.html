@@ -19,29 +19,29 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="给 debug模式 自左向右：  单步执行 有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果 【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】 【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】   执行完此函数（光标所指向的函数）">
+    <meta name="description" content="debug模式 自左向右：  单步执行 有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果 【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】 【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】   执行完此函数（光标所指向的函数）  ​">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Keil 使用">
 <meta property="og:url" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="liuhc 的个人博客">
-<meta property="og:description" content="给 debug模式 自左向右：  单步执行 有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果 【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】 【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】   执行完此函数（光标所指向的函数）">
+<meta property="og:description" content="debug模式 自左向右：  单步执行 有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果 【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】 【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】   执行完此函数（光标所指向的函数）  ​">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203853221.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source/_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203718271.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source/_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308204219473.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source/_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309021205238-17414575645953.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source/_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025406544.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source/_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025831547.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030043779.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030224547.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source/_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030800863.png">
-<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source/_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309032909583.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203853221.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203718271.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308204219473.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309021205238-17414575645953.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025406544.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025831547.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030043779.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030224547.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030800863.png">
+<meta property="og:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309032909583.png">
 <meta property="article:published_time" content="2025-01-29T18:17:13.000Z">
-<meta property="article:modified_time" content="2025-03-08T19:34:19.195Z">
+<meta property="article:modified_time" content="2025-05-02T06:59:33.212Z">
 <meta property="article:author" content="liuhc Hwy">
 <meta property="article:tag" content="嵌入式">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs/hexo-starter/source_posts/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203853221.png">
+<meta name="twitter:image" content="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203853221.png">
 
 
 <link rel="canonical" href="http://example.com/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/">
@@ -150,7 +150,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link"><span class="nav-number">1.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#-1"><span class="nav-number">2.</span> <span class="nav-text"></span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#debug%E6%A8%A1%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">debug模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E7%82%B9-%E5%BF%AB%E6%8D%B7%E9%94%AE-Ctr-B"><span class="nav-number">4.</span> <span class="nav-text">断点 快捷键 Ctr+B</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#debug%E6%A8%A1%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">debug模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%AD%E7%82%B9-%E5%BF%AB%E6%8D%B7%E9%94%AE-Ctr-B"><span class="nav-number">2.</span> <span class="nav-text">断点 快捷键 Ctr+B</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -234,7 +234,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2025-03-09 03:34:19" itemprop="dateModified" datetime="2025-03-09T03:34:19+08:00">2025-03-09</time>
+      <time title="修改时间：2025-05-02 14:59:33" itemprop="dateModified" datetime="2025-05-02T14:59:33+08:00">2025-05-02</time>
     </span>
 
   
@@ -244,7 +244,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>327</span>
+      <span>326</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -261,8 +261,7 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><h2 id><a href="#" class="headerlink" title></a></h2><h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>给</p>
-<h2 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h2><p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250308203853221.png" alt="功能一栏"></p>
+    <div class="post-body" itemprop="articleBody"><h2 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h2><p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203853221.png" alt="功能一栏"></p>
 <p>自左向右：</p>
 <ul>
 <li>单步执行<ul>
@@ -272,7 +271,6 @@
 </ul>
 </li>
 <li>执行完此函数（光标所指向的函数）</li>
-<li></li>
 </ul>
 <p>​					</p>
 <p>​					</p>
@@ -280,38 +278,38 @@
 <ul>
 <li>可以查看和输入断点（C或汇编）</li>
 </ul>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308203718271.png" alt="断点" style="zoom:33%;">
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203718271.png" alt="断点" style="zoom:33%;">
 
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308204219473.png" alt="断点" style="zoom:33%;">
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308204219473.png" alt="断点" style="zoom:33%;">
 
 
 
 <ul>
 <li>可以设置断点计数，全速运行，一旦计数到达这个数字，就会断</li>
 </ul>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309021205238-17414575645953.png" alt="重复断点" style="zoom: 33%;">
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309021205238-17414575645953.png" alt="重复断点" style="zoom: 33%;">
 
 <ul>
 <li>条件断点（对于全局和静态变量有效）<ul>
 <li>失败<ul>
-<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025406544.png" alt="条件断点失败" style="zoom:33%;"></li>
+<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025406544.png" alt="条件断点失败" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>成功（给Read权）<ul>
-<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025831547.png" alt="image-20250309025831547" style="zoom:33%;"></li>
+<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025831547.png" alt="image-20250309025831547" style="zoom:33%;"></li>
 </ul>
 </li>
 <li>局部变量目前未能成功</li>
 </ul>
 </li>
 </ul>
-<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030043779.png" alt="局部变量未定义"></p>
-<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030224547.png" alt="局部变量已定义"></p>
+<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030043779.png" alt="局部变量未定义"></p>
+<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030224547.png" alt="局部变量已定义"></p>
 <p><strong>map文件</strong></p>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309030800863.png" alt="map" style="zoom:50%;">
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030800863.png" alt="map" style="zoom:50%;">
 
 <p>不影响程序运行的调试</p>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309032909583.png" alt="不影响程序运行的调试" style="zoom:33%;">
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309032909583.png" alt="不影响程序运行的调试" style="zoom:33%;">
 
     </div>
 

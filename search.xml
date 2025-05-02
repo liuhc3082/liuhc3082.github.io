@@ -286,6 +286,16 @@
       </tags>
   </entry>
   <entry>
+    <title>My New Post</title>
+    <url>/2024/07/25/My-New-Post/</url>
+    <content><![CDATA[<p>祝贺~第一支<a href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
+<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
+]]></content>
+      <tags>
+        <tag>☀️</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>C 从hello world到goodbye world</title>
     <url>/2024/09/13/C-%E4%BB%8Ehello-world%E5%88%B0goodbye-world/</url>
     <content><![CDATA[<p>WARNNING:学习过程中随手记录或网上复制黏贴的文字与代码，由于本人性格粗心以及认知不足，错误<del>较</del>非常之多，仅供参考呜呜</p>
@@ -563,121 +573,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Keil 使用</title>
-    <url>/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
-    <content><![CDATA[<h2 id><a href="#" class="headerlink" title></a></h2><h2 id="-1"><a href="#-1" class="headerlink" title></a></h2><p>给</p>
-<h2 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h2><p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250308203853221.png" alt="功能一栏"></p>
-<p>自左向右：</p>
-<ul>
-<li>单步执行<ul>
-<li>有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果</li>
-<li>【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】</li>
-<li>【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】</li>
-</ul>
-</li>
-<li>执行完此函数（光标所指向的函数）</li>
-<li></li>
-</ul>
-<p>​					</p>
-<p>​					</p>
-<h2 id="断点-快捷键-Ctr-B"><a href="#断点-快捷键-Ctr-B" class="headerlink" title="断点 快捷键 Ctr+B"></a>断点 快捷键 Ctr+B</h2><p>仅灰色的行才能打断点，因为有些临近相同类型的命令会被整合在一起执行</p>
-<ul>
-<li>可以查看和输入断点（C或汇编）</li>
-</ul>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308203718271.png" alt="断点" style="zoom:33%;">
-
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250308204219473.png" alt="断点" style="zoom:33%;">
-
-
-
-<ul>
-<li>可以设置断点计数，全速运行，一旦计数到达这个数字，就会断</li>
-</ul>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309021205238-17414575645953.png" alt="重复断点" style="zoom: 33%;">
-
-<ul>
-<li>条件断点（对于全局和静态变量有效）<ul>
-<li>失败<ul>
-<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025406544.png" alt="条件断点失败" style="zoom:33%;"></li>
-</ul>
-</li>
-<li>成功（给Read权）<ul>
-<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309025831547.png" alt="image-20250309025831547" style="zoom:33%;"></li>
-</ul>
-</li>
-<li>局部变量目前未能成功</li>
-</ul>
-</li>
-</ul>
-<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030043779.png" alt="局部变量未定义"></p>
-<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source_posts\Keil使用技巧\image-20250309030224547.png" alt="局部变量已定义"></p>
-<p><strong>map文件</strong></p>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309030800863.png" alt="map" style="zoom:50%;">
-
-<p>不影响程序运行的调试</p>
-<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/blogs\hexo-starter\source\_posts\Keil使用技巧\image-20250309032909583.png" alt="不影响程序运行的调试" style="zoom:33%;">
-]]></content>
-      <tags>
-        <tag>嵌入式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>My New Post</title>
-    <url>/2024/07/25/My-New-Post/</url>
-    <content><![CDATA[<p>祝贺~第一支<a href="https://liuhc3082.github.io/">博客</a> ！&#x1f600;</p>
-<p>hexo部署延迟好像很久，是我的错觉吗，，，<br><img src="/2024/07/25/My-New-Post/kitty.jpg" alt="猫猫"></p>
-]]></content>
-      <tags>
-        <tag>☀️</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>deepseek 部署log</title>
-    <url>/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/</url>
-    <content><![CDATA[<h1 id="1-安装-ollama"><a href="#1-安装-ollama" class="headerlink" title="1 安装 ollama"></a>1 安装 ollama</h1><p><img src="/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/image-20250206211420798.png" alt="ollama"></p>
-<p>1.官网下载</p>
-<p>2.复制以下网址到迅雷(推荐)</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://ollama.com/download/OllamaSetup.exe</span><br></pre></td></tr></table></figure>
-
-
-
-<p><strong>注意：ollama的默认安装地址是C盘下的一个文件，模型默认安装地址在<code>C:\Users\xxx(username)\.ollama</code></strong></p>
-<p>创建一个文件夹作为ollama安装的地址</p>
-<p>在setup.exe同一文件夹下打开cmd(地址栏敲cmd回车)</p>
-<p>输入：（示例）</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">OllamaSetup.exe /DIR=E:ollama</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<h1 id="2-下载模型"><a href="#2-下载模型" class="headerlink" title="2 下载模型"></a>2 下载模型</h1><p><img src="/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/image-20250206212547010-17461674351051.png"></p>
-<p>根据显存大小选择适合的模型</p>
-<p>选择模型（中间左侧下拉菜单），复制右侧代码在命令行中执行</p>
-<p>（实例）</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ollama run deepseek-r1:8b</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h1><p><code>ollama run deepseek-r1:8b</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; /?</span></span><br><span class="line">Available Commands:</span><br><span class="line">  /set            Set session variables</span><br><span class="line">  /show           Show model information</span><br><span class="line">  /load &lt;model&gt;   Load a session or model</span><br><span class="line">  /save &lt;model&gt;   Save your current session</span><br><span class="line">  /clear          Clear session context</span><br><span class="line">  /bye            Exit</span><br><span class="line">  /?, /help       Help for a command</span><br><span class="line">  /? shortcuts    Help for keyboard shortcuts</span><br><span class="line"></span><br><span class="line">Use &quot;&quot;&quot; to begin a multi-line message.</span><br></pre></td></tr></table></figure>
-
-
-
-<h1 id="4-配置模型"><a href="#4-配置模型" class="headerlink" title="4 配置模型"></a>4 配置模型</h1><p>配置文件 格式【需要更改 模型名称，temperature，设定】</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM deepseek-r1:8b</span><br><span class="line"></span><br><span class="line">PARAMETER temperature 1</span><br><span class="line"></span><br><span class="line">SYSTEM &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
-
-<p><img src="/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/image-20250206225212837.png"></p>
-<p>在文件目录下输入(xxx为文件名)</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ollama create xxx -f ./xxx</span><br></pre></td></tr></table></figure>
-
-<p>通过<code>ollama list</code>可以查看模型</p>
-]]></content>
-      <tags>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>python温故与知新</title>
     <url>/2025/03/22/python%E6%B8%A9%E6%95%85%E4%B8%8E%E7%9F%A5%E6%96%B0/</url>
     <content><![CDATA[<h2 id="闭包函数-Closure-Function"><a href="#闭包函数-Closure-Function" class="headerlink" title="闭包函数(Closure Function)"></a>闭包函数(Closure Function)</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>​	在另一个函数中嵌套定义的函数，并且在外部函数中（其指针）被返回</p>
@@ -798,6 +693,119 @@
       </tags>
   </entry>
   <entry>
+    <title>deepseek 部署log</title>
+    <url>/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/</url>
+    <content><![CDATA[<h1 id="1-安装-ollama"><a href="#1-安装-ollama" class="headerlink" title="1 安装 ollama"></a>1 安装 ollama</h1><p><img src="/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/image-20250206211420798.png" alt="ollama"></p>
+<p>1.官网下载</p>
+<p>2.复制以下网址到迅雷(推荐)</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">https://ollama.com/download/OllamaSetup.exe</span><br></pre></td></tr></table></figure>
+
+
+
+<p><strong>注意：ollama的默认安装地址是C盘下的一个文件，模型默认安装地址在<code>C:\Users\xxx(username)\.ollama</code></strong></p>
+<p>创建一个文件夹作为ollama安装的地址</p>
+<p>在setup.exe同一文件夹下打开cmd(地址栏敲cmd回车)</p>
+<p>输入：（示例）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">OllamaSetup.exe /DIR=E:ollama</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h1 id="2-下载模型"><a href="#2-下载模型" class="headerlink" title="2 下载模型"></a>2 下载模型</h1><p><img src="/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/image-20250206212547010-17461674351051.png"></p>
+<p>根据显存大小选择适合的模型</p>
+<p>选择模型（中间左侧下拉菜单），复制右侧代码在命令行中执行</p>
+<p>（实例）</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ollama run deepseek-r1:8b</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="3-使用"><a href="#3-使用" class="headerlink" title="3 使用"></a>3 使用</h1><p><code>ollama run deepseek-r1:8b</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">&gt;</span><span class="language-bash">&gt;&gt; /?</span></span><br><span class="line">Available Commands:</span><br><span class="line">  /set            Set session variables</span><br><span class="line">  /show           Show model information</span><br><span class="line">  /load &lt;model&gt;   Load a session or model</span><br><span class="line">  /save &lt;model&gt;   Save your current session</span><br><span class="line">  /clear          Clear session context</span><br><span class="line">  /bye            Exit</span><br><span class="line">  /?, /help       Help for a command</span><br><span class="line">  /? shortcuts    Help for keyboard shortcuts</span><br><span class="line"></span><br><span class="line">Use &quot;&quot;&quot; to begin a multi-line message.</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="4-配置模型"><a href="#4-配置模型" class="headerlink" title="4 配置模型"></a>4 配置模型</h1><p>配置文件 格式【需要更改 模型名称，temperature，设定】</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">FROM deepseek-r1:8b</span><br><span class="line"></span><br><span class="line">PARAMETER temperature 1</span><br><span class="line"></span><br><span class="line">SYSTEM &quot;&quot;&quot;</span><br><span class="line"></span><br><span class="line">&quot;&quot;&quot;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2025/02/06/deepseek-%E9%83%A8%E7%BD%B2log/image-20250206225212837.png"></p>
+<p>在文件目录下输入(xxx为文件名)</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">ollama create xxx -f ./xxx</span><br></pre></td></tr></table></figure>
+
+<p>通过<code>ollama list</code>可以查看模型</p>
+]]></content>
+      <tags>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Keil 使用</title>
+    <url>/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/</url>
+    <content><![CDATA[<h2 id="debug模式"><a href="#debug模式" class="headerlink" title="debug模式"></a>debug模式</h2><p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203853221.png" alt="功能一栏"></p>
+<p>自左向右：</p>
+<ul>
+<li>单步执行<ul>
+<li>有一个最长等待时间：150*10^(-8) s，比如说像系统嘀嗒计时器，每 1s 才能输出一次，所以点一次单步执行无法return函数结果</li>
+<li>【如果点c，就是一个C指令为一步，点汇编就是一个汇编指令为一步】</li>
+<li>【注意，有时即使点了单步执行也不会执行下一行，原因是编译器优化了它认为不需要执行的部分，可以在魔法棒处修改】</li>
+</ul>
+</li>
+<li>执行完此函数（光标所指向的函数）</li>
+</ul>
+<p>​					</p>
+<p>​					</p>
+<h2 id="断点-快捷键-Ctr-B"><a href="#断点-快捷键-Ctr-B" class="headerlink" title="断点 快捷键 Ctr+B"></a>断点 快捷键 Ctr+B</h2><p>仅灰色的行才能打断点，因为有些临近相同类型的命令会被整合在一起执行</p>
+<ul>
+<li>可以查看和输入断点（C或汇编）</li>
+</ul>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308203718271.png" alt="断点" style="zoom:33%;">
+
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250308204219473.png" alt="断点" style="zoom:33%;">
+
+
+
+<ul>
+<li>可以设置断点计数，全速运行，一旦计数到达这个数字，就会断</li>
+</ul>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309021205238-17414575645953.png" alt="重复断点" style="zoom: 33%;">
+
+<ul>
+<li>条件断点（对于全局和静态变量有效）<ul>
+<li>失败<ul>
+<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025406544.png" alt="条件断点失败" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>成功（给Read权）<ul>
+<li><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309025831547.png" alt="image-20250309025831547" style="zoom:33%;"></li>
+</ul>
+</li>
+<li>局部变量目前未能成功</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030043779.png" alt="局部变量未定义"></p>
+<p><img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030224547.png" alt="局部变量已定义"></p>
+<p><strong>map文件</strong></p>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309030800863.png" alt="map" style="zoom:50%;">
+
+<p>不影响程序运行的调试</p>
+<img src="/2025/01/30/Keil%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7/image-20250309032909583.png" alt="不影响程序运行的调试" style="zoom:33%;">
+]]></content>
+      <tags>
+        <tag>嵌入式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微秒级延时函数代码（快速复制用）</title>
+    <url>/2025/01/30/%E5%BE%AE%E7%A7%92%E7%BA%A7%E5%BB%B6%E6%97%B6%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%EF%BC%88%E5%BF%AB%E9%80%9F%E5%A4%8D%E5%88%B6%E7%94%A8%EF%BC%89/</url>
+    <content><![CDATA[<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//===============================================us延时函数</span></span><br><span class="line">    <span class="type">void</span> <span class="title function_">delay_us</span><span class="params">(<span class="type">uint32_t</span> us)</span><span class="comment">//主频72M</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">uint32_t</span> delay = (HAL_RCC_GetHCLKFreq() / <span class="number">4000000</span> * us);</span><br><span class="line">    <span class="keyword">while</span> (delay--)</span><br><span class="line">	&#123;</span><br><span class="line">		;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>嵌入式</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>关于串口重定向（一劳永逸版）</title>
     <url>/2025/01/30/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/</url>
     <content><![CDATA[<p><img src="/2025/01/30/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/image-20250130021836204.png" alt="image-20250130021836204"></p>
@@ -810,16 +818,6 @@
 
 <p><img src="/2025/01/30/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/image-20250130023507122.png" alt="image-20250130023507122"></p>
 <p>出自<a href="https://blog.csdn.net/qq_62014938/article/details/125602277">https://blog.csdn.net/qq_62014938/article/details/125602277</a></p>
-]]></content>
-      <tags>
-        <tag>嵌入式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微秒级延时函数代码（快速复制用）</title>
-    <url>/2025/01/30/%E5%BE%AE%E7%A7%92%E7%BA%A7%E5%BB%B6%E6%97%B6%E5%87%BD%E6%95%B0%E4%BB%A3%E7%A0%81%EF%BC%88%E5%BF%AB%E9%80%9F%E5%A4%8D%E5%88%B6%E7%94%A8%EF%BC%89/</url>
-    <content><![CDATA[<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="comment">//===============================================us延时函数</span></span><br><span class="line">    <span class="type">void</span> <span class="title function_">delay_us</span><span class="params">(<span class="type">uint32_t</span> us)</span><span class="comment">//主频72M</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="type">uint32_t</span> delay = (HAL_RCC_GetHCLKFreq() / <span class="number">4000000</span> * us);</span><br><span class="line">    <span class="keyword">while</span> (delay--)</span><br><span class="line">	&#123;</span><br><span class="line">		;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 ]]></content>
       <tags>
         <tag>嵌入式</tag>
