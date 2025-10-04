@@ -818,9 +818,114 @@
 
 <p><img src="/2025/01/30/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/image-20250130023507122.png" alt="image-20250130023507122"></p>
 <p>出自<a href="https://blog.csdn.net/qq_62014938/article/details/125602277">https://blog.csdn.net/qq_62014938/article/details/125602277</a></p>
+<h2 id="（补）Clion中进行串口重定义（Keil中也通用）"><a href="#（补）Clion中进行串口重定义（Keil中也通用）" class="headerlink" title="（补）Clion中进行串口重定义（Keil中也通用）"></a>（补）Clion中进行串口重定义（Keil中也通用）</h2><p><a href="https://blog.csdn.net/L_Throne/article/details/149650524">CLion开发STM32：串口重定向printf输出指南_clion stm32 printf-CSDN博客</a></p>
+<p>在<code>usart.c</code>末尾加入</p>
+<p><img src="/2025/01/30/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/../../../../../blogs/hexo-starter/source/_posts/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/image-20250820013041813.png" alt="image-20250820013041813"></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">ifdef</span> __GNUC__</span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PUTCHAR_PROTOTYPE int __io_putchar(int ch)</span></span><br><span class="line"><span class="meta">#<span class="keyword">else</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">define</span> PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)</span></span><br><span class="line"><span class="meta">#<span class="keyword">endif</span></span></span><br><span class="line"></span><br><span class="line">PUTCHAR_PROTOTYPE</span><br><span class="line"> &#123;</span><br><span class="line">   HAL_UART_Transmit(&amp;huart1, (<span class="type">uint8_t</span> *) &amp;ch, <span class="number">1</span>, <span class="number">0xFFFF</span>);</span><br><span class="line">   <span class="keyword">return</span> ch;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>在usart.h文件引入头文件</p>
+<p><img src="/2025/01/30/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/../../../../../blogs/hexo-starter/source/_posts/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/image-20250820013150789.png" alt="image-20250820013150789"></p>
+<p><u><strong>WARNNING</strong> 在Clion中printf中必须加上\r\n作为结束符</u></p>
+<p>或者：</p>
+<p><code>printf(&quot;1&quot;);</code><br><code>fflush(stdout);  *// 强制刷新缓冲区*</code></p>
+<p><img src="/2025/01/30/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/../../../../../blogs/hexo-starter/source/_posts/%E5%85%B3%E4%BA%8E%E4%B8%B2%E5%8F%A3%E9%87%8D%E5%AE%9A%E5%90%91%EF%BC%88%E4%B8%80%E5%8A%B3%E6%B0%B8%E9%80%B8%E7%89%88%EF%BC%89/image-20250820015952057.png" alt="image-20250820015952057"></p>
+<h2 id="（补）串口中断不定长接收"><a href="#（补）串口中断不定长接收" class="headerlink" title="（补）串口中断不定长接收"></a>（补）串口中断不定长接收</h2><p><strong>CubeMX中添加串口中断NVIC</strong></p>
+<p><strong>补上字符串库</strong></p>
+<p><code>#include &lt;string.h&gt;</code></p>
+<p>1.串口中断不定长接收(含结束标识符)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">uint8_t</span> rx_line;<span class="comment">//接收信息长度</span></span><br><span class="line"><span class="type">uint8_t</span> rx_buff[<span class="number">1</span>];</span><br><span class="line"><span class="type">char</span> rx_data[<span class="number">20</span>];</span><br><span class="line"></span><br><span class="line"><span class="type">void</span> <span class="title function_">HAL_UART_RxCpltCallback</span><span class="params">(UART_HandleTypeDef *huart)</span></span><br><span class="line">&#123;</span><br><span class="line">		rx_data[rx_line] = *rx_buff;</span><br><span class="line">		rx_line++;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(rx_buff[<span class="number">0</span>] == <span class="number">0xFF</span>)<span class="comment">//结束标识符</span></span><br><span class="line">		&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(!<span class="built_in">memcmp</span>(......))</span><br><span class="line">			&#123;</span><br><span class="line">				</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="comment">//清除缓存和接收信息</span></span><br><span class="line">			<span class="built_in">memset</span>(rx_buff,<span class="number">0</span>,<span class="number">1</span>);</span><br><span class="line">			<span class="built_in">memset</span>(rx_data,<span class="number">0</span>,<span class="keyword">sizeof</span>(rx_data));</span><br><span class="line">			rx_line = <span class="number">0</span>;</span><br><span class="line">		&#125;</span><br><span class="line">    HAL_UART_Receive_IT(&amp;huart1, rx_buff, <span class="number">1</span>); <span class="comment">//收完了之后再次开启中断</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/****************************************************************************************************/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">HAL_UART_Receive_IT(&amp;huart1, rx_buff, <span class="number">1</span>);<span class="comment">//开启串口不定长接收</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>2.串口DMA（打开UART中断）</p>
+<p>修改：<code>HAL_UART_Receive_IT(&amp;huart1, rx_buff, 1);//开启串口不定长接收</code></p>
+<p>为：</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line">HAL_UART_Receive_DMA(&amp;huart1, (<span class="type">uint8_t</span>*)rx_buff, <span class="number">1</span>);<span class="comment">//开启DMA传输完成中断</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>3.串口DMA不定长接收(无需标识符)</p>
+<h3 id="注意！！除了DMA本身的中断要开（Cube-MX默认一定开的），UART本身的中断也要打开，而且main-c里是不能使能UART中断的！！！无论是DMA空闲中断检测还是普通的空闲中断检测，都是在使用该串口的中断服务，而且如果你将串口中断和空闲中断的回调函数都打开，而没有定义前者的回调函数，后者的回调函数不会被调用！"><a href="#注意！！除了DMA本身的中断要开（Cube-MX默认一定开的），UART本身的中断也要打开，而且main-c里是不能使能UART中断的！！！无论是DMA空闲中断检测还是普通的空闲中断检测，都是在使用该串口的中断服务，而且如果你将串口中断和空闲中断的回调函数都打开，而没有定义前者的回调函数，后者的回调函数不会被调用！" class="headerlink" title="注意！！除了DMA本身的中断要开（Cube MX默认一定开的），UART本身的中断也要打开，而且main.c里是不能使能UART中断的！！！无论是DMA空闲中断检测还是普通的空闲中断检测，都是在使用该串口的中断服务，而且如果你将串口中断和空闲中断的回调函数都打开，而没有定义前者的回调函数，后者的回调函数不会被调用！"></a>注意！！除了DMA本身的中断要开（Cube MX默认一定开的），UART本身的中断也要打开，而且main.c里是不能使能UART中断的！！！无论是DMA空闲中断检测还是普通的空闲中断检测，都是在使用该串口的中断服务，而且如果你将串口中断和空闲中断的回调函数都打开，而没有定义前者的回调函数，后者的回调函数不会被调用！</h3><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">void</span> <span class="title function_">HAL_UARTEx_RxEventCallback</span><span class="params">(UART_HandleTypeDef *huart, <span class="type">uint16_t</span> Size)</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (huart==&amp;huart1) &#123;</span><br><span class="line"></span><br><span class="line">    HAL_UARTEx_ReceiveToIdle_DMA(&amp;huart1,(<span class="type">uint8_t</span>*)rx_data1,<span class="number">20</span>);<span class="comment">//开启串口空闲中断</span></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">if</span> (huart == &amp;huart3) &#123;</span><br><span class="line"></span><br><span class="line">    HAL_UARTEx_ReceiveToIdle_DMA(&amp;huart3,(<span class="type">uint8_t</span>*)rx_data3,<span class="number">20</span>);<span class="comment">//开启串口空闲中断</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">HAL_UARTEx_ReceiveToIdle_DMA(&amp;huart1,(<span class="type">uint8_t</span>*)rx_data1,<span class="number">20</span>);<span class="comment">//开启串口空闲中断</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>DMA、中断、轮询三种模式的串口中断函数介绍：</p>
+<h4 id="1-HAL-UARTEx-ReceiveToIdle-DMA"><a href="#1-HAL-UARTEx-ReceiveToIdle-DMA" class="headerlink" title="1. HAL_UARTEx_ReceiveToIdle_DMA"></a>1. <code>HAL_UARTEx_ReceiveToIdle_DMA</code></h4><ul>
+<li><strong>功能</strong>：使用 DMA（直接内存访问）方式接收数据，直到检测到空闲线路。</li>
+<li><strong>机制</strong>：DMA 控制器负责将接收到的数据从 UART 外设传输到内存中，而 CPU 可以继续执行其他任务。当检测到空闲线路时，<strong>DMA 会停止传输，并触发一个中断。</strong></li>
+<li><strong>适用场景</strong>：适用于需要高效传输大量数据且不希望 CPU 被频繁中断的情况。</li>
+<li><strong>回调函数</strong>：在 DMA 传输完成后，会调用 <code>HAL_UARTEx_RxEventCallback</code> 回调函数。</li>
+</ul>
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_UARTEx_ReceiveToIdle_DMA(&amp;huart1, (uint8_t*)rx_data1, 20);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>特殊机制：DMA的空闲中断还会开一个传输过半中断，以上面这个代码为例，如果单片机接收了10个字符，<strong>会调用 <code>HAL_UARTEx_RxEventCallback</code> 回调函数2次！</strong></li>
+</ul>
+<h4 id="2-HAL-UARTEx-ReceiveToIdle-IT"><a href="#2-HAL-UARTEx-ReceiveToIdle-IT" class="headerlink" title="2. HAL_UARTEx_ReceiveToIdle_IT"></a>2. <code>HAL_UARTEx_ReceiveToIdle_IT</code></h4><ul>
+<li><strong>功能</strong>：使用中断方式接收数据，直到检测到空闲线路。</li>
+<li><strong>机制</strong>：UART 外设每接收到一个字节的数据时，都会触发一个中断，CPU 需要处理这些中断并将数据存储到内存中。当检测到空闲线路时，<strong>会触发一个特定的中断。</strong>（如果有设置DMA，DMA仍然继续内存递增和传输，直到达到最大设定长度）</li>
+<li><strong>适用场景</strong>：适用于数据量较小或需要实时处理每个字节的情况。</li>
+<li><strong>回调函数</strong>：在检测到空闲线路时，会调用 <code>HAL_UARTEx_RxEventCallback</code> 回调函数。</li>
+</ul>
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">HAL_UARTEx_ReceiveToIdle_IT(&amp;huart1, (uint8_t*)rx_data1, 20);</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-HAL-UARTEx-ReceiveToIdle"><a href="#3-HAL-UARTEx-ReceiveToIdle" class="headerlink" title="3. HAL_UARTEx_ReceiveToIdle"></a>3. <code>HAL_UARTEx_ReceiveToIdle</code></h4><ul>
+<li><strong>功能</strong>：使用轮询方式接收数据，直到检测到空闲线路。</li>
+<li><strong>机制</strong>：<strong>CPU 不断轮询 UART 状态寄存器，直到检测到空闲线路</strong>。这种方式会阻塞 CPU，使其无法执行其他任务。</li>
+<li><strong>适用场景</strong>：适用于简单的调试或测试，以及对实时性要求不高且数据量较小的情况。</li>
+<li><strong>回调函数</strong>：无回调函数，因为是轮询方式。</li>
+</ul>
+<p>示例代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">uint16_t RxLen;</span><br><span class="line">HAL_UARTEx_ReceiveToIdle(&amp;huart1, (uint8_t*)rx_data1, 20, &amp;RxLen, HAL_MAX_DELAY);</span><br></pre></td></tr></table></figure>
+
+<h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ul>
+<li>**<code>HAL_UARTEx_ReceiveToIdle_DMA</code>**：使用 DMA 方式接收数据，适合大数据量传输，CPU 不会被频繁中断。</li>
+<li>**<code>HAL_UARTEx_ReceiveToIdle_IT</code>**：使用中断方式接收数据，适合小数据量或需要实时处理每个字节的情况。</li>
+<li>**<code>HAL_UARTEx_ReceiveToIdle</code>**：使用轮询方式接收数据，适合简单的调试或测试，但会阻塞 CPU。</li>
+</ul>
+<p>选择哪个函数取决于你的具体需求，包括数据量大小、实时性要求以及 CPU 的负载情况。如果你需要高效的大量数据传输，建议使用 <code>HAL_UARTEx_ReceiveToIdle_DMA</code>；如果需要实时处理每个字节，可以使用 <code>HAL_UARTEx_ReceiveToIdle_IT</code>；如果只是简单的调试或测试，可以使用 <code>HAL_UARTEx_ReceiveToIdle</code>。</p>
+<p>串口助手无法收到测试消息的原因：</p>
+<p>①CubeMX配置没更新 重新生成</p>
+<p>②中断没开（如果使用了中断函数）</p>
+<p>③没放在初始化函数的后面</p>
+<p>④重启串口助手看看</p>
+<p>⑤线的问题 回环测试一下</p>
+<p>……</p>
 ]]></content>
       <tags>
         <tag>嵌入式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CLion+CubeMX+Daplink_环境配置教程整理</title>
+    <url>/2025/08/20/CLion+CubeMX+Daplink_%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B%E6%95%B4%E7%90%86/</url>
+    <content><![CDATA[<p>前置配置（CLion+CubeCLT）：<a href="https://www.bilibili.com/video/BV1pnjizYEAk/?spm_id_from=333.1387.homepage.video_card.click&vd_source=750577b3795032575c17c9e1387bd61b">爽！手把手教你用CLion开发STM32【大人，时代变啦！！！】_哔哩哔哩_bilibili</a></p>
+<p>注：工具链配置如果编译有报错，建议使用CubeCLT的试试看。</p>
+<p>下载OpenOCD:<a href="https://blog.csdn.net/v_for_van/article/details/150466953">STM32 VS Code Extension + DAPlink实现-CSDN博客</a><br>daplink:<a href="https://www.cnblogs.com/xs314/articles/18906035/stm32_daplink_clion">基于STM32和DAPLINK的Clion开发配置 - xs314 - 博客园</a></p>
+<p>注：在不会经常清理的地方创建<code>daplink.dsf</code></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">choose st-link/j-link/dap-link etc.</span></span><br><span class="line"></span><br><span class="line">adapter driver cmsis-dap</span><br><span class="line">transport select swd</span><br><span class="line"></span><br><span class="line">source [find target/stm32f1x.cfg]</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">download speed = 10MHz</span></span><br><span class="line"></span><br><span class="line">adapter speed 10000</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <tags>
+        <tag>嵌入式</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>硬件笔记</title>
+    <url>/2025/07/17/2025-07-17-%E7%A1%AC%E4%BB%B6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<p>链接：<a href="https://www.bilibili.com/video/BV1gu4y1b7RS?spm_id_from=333.788.player.switch&vd_source=750577b3795032575c17c9e1387bd61b">https://www.bilibili.com/video/BV1gu4y1b7RS?spm_id_from=333.788.player.switch&amp;vd_source=750577b3795032575c17c9e1387bd61b</a></p>
+<h2 id="电阻"><a href="#电阻" class="headerlink" title="电阻"></a>电阻</h2><h3 id="电阻的封装和功率表格"><a href="#电阻的封装和功率表格" class="headerlink" title="电阻的封装和功率表格"></a>电阻的封装和功率表格</h3><p><img src="/2025/07/17/2025-07-17-%E7%A1%AC%E4%BB%B6%E7%AC%94%E8%AE%B0/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20250717051559994.png" alt="image-20250717051559994"></p>
+<h3 id="电阻的封装尺寸"><a href="#电阻的封装尺寸" class="headerlink" title="电阻的封装尺寸"></a>电阻的封装尺寸</h3><p><img src="/2025/07/17/2025-07-17-%E7%A1%AC%E4%BB%B6%E7%AC%94%E8%AE%B0/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20250717051724718.png" alt="image-20250717051724718"></p>
+<h3 id="电阻的封装和耐压值"><a href="#电阻的封装和耐压值" class="headerlink" title="电阻的封装和耐压值"></a>电阻的封装和耐压值</h3><p><img src="/2025/07/17/2025-07-17-%E7%A1%AC%E4%BB%B6%E7%AC%94%E8%AE%B0/Users\liuhc\AppData\Roaming\Typora\typora-user-images\image-20250717051837113.png" alt="image-20250717051837113"></p>
+]]></content>
+      <tags>
+        <tag>硬件</tag>
       </tags>
   </entry>
 </search>
